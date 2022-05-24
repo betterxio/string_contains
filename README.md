@@ -85,3 +85,6 @@ import 'package:string_contains/string_contains.dart';
 "i love Flutter.".cleanWords(["hi", "there","flutter"], obscuringCharacter: '#') // returns "i love F#####r."
 "i love Flutter.".cleanWords(["hi", "there","flutter"], keepFirstLastLetters: false) // returns "i love *******."
 ```
+
+# TODO
+clean widget
