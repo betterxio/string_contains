@@ -1,5 +1,5 @@
 name: string_contains
-description: Extension on [String] that provides a methods to check, if a string contains specific words/phrases/Regex/etc.
+description: Extension on String that provides a methods to check, if a string contains specific words/phrases/Regex/etc.
 version: 0.0.1
 homepage: https://github.com/betterx-io/string_contains
 

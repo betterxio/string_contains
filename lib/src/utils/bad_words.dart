@@ -1,8 +1,5 @@
 /// [List] of bad-words.
 ///
-/// ```source``` :
-/// [web-mech/badwords](https://www.npmjs.com/package/bad-words).
-///
 /// badWords is a [List] of [String]s.
 ///
 /// Each [String] is a bad-word.

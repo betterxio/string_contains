@@ -1,6 +1,6 @@
 # string_contains
 
-Extension on [String] that provides a methods to check, if a string contains specific words/phrases/Regex/etc.
+Extension on String that provides a methods to check, if a string contains specific words/phrases/Regex/etc.
 
 # Installing
 
@@ -50,13 +50,35 @@ import 'package:string_contains/string_contains.dart';
 ```dart
 import 'package:string_contains/string_contains.dart';
  'I am CEO, Bitch'.containsBadWords(); // returns true
+
  'I am CEO, Bitch'.cleanBadWords() // returns 'I am CEO, B***t'.
+
  'I am CEO, Bitch'.cleanBadWords(keepFirstLastLetters: false) // returns 'I am CEO, *****'.
+
  'I am CEO, Bitch'.cleanBadWords(obscuringCharacter: '@') // returns 'I am CEO, B@@@h'.
+
  'I am CEO, Bitch'.getBadWords() // returns ['Bitch']
+
  'Please visit our website : https://betterx.io/'.containsUrl() // returns true
+
  'Please visit our website : https://betterx.io/'.getUrls() // returns ['https://betterx.io/']
- "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : info@betterx.io".containsEmail() // returns false
+
+ "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : info@betterx.io".containsEmail() // returns true
+
  "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : info@betterx.io".getEmails() // returns ['betterx.io']
+
  "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : info@betterx.io".hideEmails() // returns "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : in**@betterx.io
+
+```
+
+```dart
+"hi there, i love flutter.".containsWords(["hi", "there","flutter" ]) // returns true
+"i love Flutter.".containsWords(["hi", "there","flutter"], caseSensitive: true) // returns false
+```
+
+```dart
+"hi there, i love flutter.".cleanWords(["hi", "there","flutter" ]) // returns "**, t***e, i love F*****r."
+"i love Flutter.".cleanWords(["hi", "there","flutter"], caseSensitive: true) // returns "i love Flutter."
+"i love Flutter.".cleanWords(["hi", "there","flutter"], obscuringCharacter: '#') // returns "i love F#####r."
+"i love Flutter.".cleanWords(["hi", "there","flutter"], keepFirstLastLetters: false) // returns "i love *******."
 ```

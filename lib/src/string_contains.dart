@@ -41,10 +41,13 @@ extension StringContains on String {
   /// obscuringCharacter is defaulted to '*'.
   ///
   /// keepFirstLastLetters is defaulted to [true].
+  /// If [keepFirstLastLetters] is set to [false], first and last letter of the string also will be replaced with [String] obscuringCharacter.
   ///
   /// ```dart
   /// 'I am CEO, Bitch'.cleanBadWords() // returns 'I am CEO, B***t'.
+  ///
   /// 'I am CEO, Bitch'.cleanBadWords(keepFirstLastLetters: false) // returns 'I am CEO, *****'.
+  ///
   /// 'I am CEO, Bitch'.cleanBadWords(obscuringCharacter: '@') // returns 'I am CEO, B@@@h'.
   /// ```
 
@@ -78,11 +81,11 @@ extension StringContains on String {
 
   /// Get all bad-words/profane-word(s) from the string.
   ///
-  /// returns [List<String>] if the string contains any bad-word/profane-word(s).
+  /// returns [List] if the string contains any bad-word/profane-word(s).
   ///
-  /// returns empty [List<String>] if the string does not contain any bad-word/profane-word(s).
+  /// returns empty [List] if the string does not contain any bad-word/profane-word(s).
   ///
-  /// returns empty [List<String>] if the string is empty.
+  /// returns empty [List] if the string is empty.
   ///
   /// ```dart
   /// 'I am CEO, Bitch'.getBadWords() // returns ['Bitch']
@@ -111,6 +114,7 @@ extension StringContains on String {
   }
 
   /// Checks if the string contains [url]/[uri].
+  ///
   /// returns true if the string contains [url]/[uri].
   ///
   /// returns false if the string does not contain [url]/[uri].
@@ -135,11 +139,11 @@ extension StringContains on String {
 
   /// Get all [List] of [url]/[uri] [String]s from the string.
   ///
-  /// returns [List<String>] if the string contains [url]/[uri].
+  /// returns [List] if the string contains [url]/[uri].
   ///
-  /// returns empty [List<String>] if the string does not contain [url]/[uri].
+  /// returns empty [List] if the string does not contain [url]/[uri].
   ///
-  /// returns empty [List<String>] if the string is empty.
+  /// returns empty [List] if the string is empty.
   ///
   /// ```dart
   /// 'Please visit our website : https://betterx.io/'.getUrls() // returns ['https://betterx.io/']
@@ -161,11 +165,11 @@ extension StringContains on String {
     return [];
   }
 
-  /// Checks if the string contains [email](s).
+  /// Checks if the string contains [email].
   ///
-  /// returns true if the string contains [email](s).
+  /// returns true if the string contains [email].
   ///
-  /// returns false if the string does not contain [email](s).
+  /// returns false if the string does not contain [email].
   ///
   /// returns false if the string is empty.
   ///
@@ -185,13 +189,13 @@ extension StringContains on String {
     return false;
   }
 
-  /// Get [List] of all [email](s) from the string.
+  /// Get [List] of all [email] from the string.
   ///
-  /// returns [List<String>] if the string contains [email](s).
+  /// returns [List] if the string contains [email].
   ///
-  /// returns empty [List<String>] if the string does not contain [email](s).
+  /// returns empty [List] if the string does not contain [email].
   ///
-  /// returns empty [List<String>] if the string is empty.
+  /// returns empty [List] if the string is empty.
   ///
   /// ```dart
   /// "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : info@betterx.io".getEmails() // returns ['betterx.io']
@@ -213,11 +217,11 @@ extension StringContains on String {
     return [];
   }
 
-  /// hide [email](s) from the string.
+  /// hide [email] from the string.
   ///
-  /// returns [String] if the string contains [email](s).
+  /// returns [String] if the string contains [email].
   ///
-  /// returns [String] if the string does not contain [email](s).
+  /// returns [String] if the string does not contain [email].
   ///
   /// returns [String] if the string is empty.
   ///
@@ -257,13 +261,13 @@ extension StringContains on String {
     return this;
   }
 
-  /// Checks if the string contains [phone](s).
+  /// Checks if the string contains [phone].
   ///
   /// phone number will be 10 digits without country code.
   ///
-  /// returns true if the string contains [phone](s).
+  /// returns true if the string contains [phone].
   ///
-  /// returns false if the string does not contain [phone](s).
+  /// returns false if the string does not contain [phone].
   ///
   /// returns false if the string is empty.
   /// ```dart
@@ -282,15 +286,15 @@ extension StringContains on String {
     return false;
   }
 
-  /// Get [List] of all [phone](s) from the string.
+  /// Get [List] of all [phone] from the string.
   ///
   /// phone number will be 10 digits without country code.
   ///
-  /// returns [List<String>] if the string contains [phone](s).
+  /// returns [List] if the string contains [phone].
   ///
-  /// returns empty [List<String>] if the string does not contain [phone](s).
+  /// returns empty [List] if the string does not contain [phone].
   ///
-  /// returns empty [List<String>] if the string is empty.
+  /// returns empty [List] if the string is empty.
   /// ```dart
   /// "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : 91-0000000000".getPhoneNumbers() // returns ['0000000000']
   /// ```
@@ -311,13 +315,13 @@ extension StringContains on String {
     return [];
   }
 
-  /// hide [phone](s) from the string.
+  /// hide [phone] from the string.
   ///
   /// phone number will be 10 digits without country code.
   ///
-  /// returns [String] if the string contains [phone](s).
+  /// returns [String] if the string contains [phone].
   ///
-  /// returns [String] if the string does not contain [phone](s).
+  /// returns [String] if the string does not contain [phone].
   ///
   /// returns [String] if the string is empty.
   ///
@@ -402,6 +406,13 @@ extension StringContains on String {
   /// obscuringCharacter is defaulted to '*'.
   ///
   /// keepFirstLastLetters is defaulted to [true].
+  ///
+  /// ```dart
+  /// "hi there, i love flutter.".cleanWords(["hi", "there","flutter" ]) // returns "**, t***e, i love F*****r."
+  /// "i love Flutter.".cleanWords(["hi", "there","flutter"], caseSensitive: true) // returns "i love Flutter."
+  /// "i love Flutter.".cleanWords(["hi", "there","flutter"], obscuringCharacter: '#') // returns "i love F#####r."
+  /// "i love Flutter.".cleanWords(["hi", "there","flutter"], keepFirstLastLetters: false) // returns "i love *******."
+  /// ```
 
   String cleanWords(
     List<String> words, {
