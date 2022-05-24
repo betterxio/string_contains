@@ -49,6 +49,9 @@ import 'package:string_contains/string_contains.dart';
 
 ```dart
 import 'package:string_contains/string_contains.dart';
+```
+
+```dart
  'I am CEO, Bitch'.containsBadWords(); // returns true
 
  'I am CEO, Bitch'.cleanBadWords() // returns 'I am CEO, B***t'.
