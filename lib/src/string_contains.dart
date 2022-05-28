@@ -1,7 +1,7 @@
 import 'package:string_contains/src/utils/constants.dart';
 
 /// ```dart
-/// Extension on [String] that provides a methods to check, if a string contains bad-words/url/link/email/phone number/hashtag/mention and more others.
+/// Extension on [String] that provides a methods to check, if a string contains any bad-words/url/link/email/phone number/hashtag/mention and more others.
 /// ```
 extension StringContains on String {
   /// Checks if the string contains any of bad-word/profane-word(s).

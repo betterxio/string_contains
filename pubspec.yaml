@@ -1,6 +1,6 @@
 name: string_contains
-description: Extension on String that provides a methods to check, if a string contains specific words/phrases/Regex/etc.
-version: 0.0.1
+description: Extension on String that provides a methods to check, if a string contains any bad-words/url/link/email/phone number/hashtag/mention and more others.
+version: 0.0.2
 homepage: https://github.com/betterx-io/string_contains
 issue_tracker : https://github.com/betterx-io/string_contains/issues
 
