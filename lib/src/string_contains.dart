@@ -1,7 +1,7 @@
-import 'utils/bad_words.dart';
+import 'package:string_contains/src/utils/constants.dart';
 
 /// ```dart
-/// Extension on [String] that provides a methods to check, if a string contains specific words/phrases/Regex/etc.
+/// Extension on [String] that provides a methods to check, if a string contains bad-words/url/link/email/phone number/hashtag/mention and more others.
 /// ```
 extension StringContains on String {
   /// Checks if the string contains any of bad-word/profane-word(s).
@@ -18,12 +18,12 @@ extension StringContains on String {
   bool containsBadWord() {
     if (isNotEmpty) {
       try {
-        final regExp = RegExp(
-          "\\b(?:${badWords.join('|')})\\b",
-          caseSensitive: false,
-          dotAll: true,
-        );
-        return regExp.hasMatch(this);
+        // final regExp = RegExp(
+        //   "\\b(?:${badWords.join('|')})\\b",
+        //   caseSensitive: false,
+        //   dotAll: true,
+        // );
+        return badWordsRegExp.hasMatch(this);
       } on Exception {
         return false;
       }
@@ -55,12 +55,12 @@ extension StringContains on String {
       {String obscuringCharacter = '*', bool keepFirstLastLetters = true}) {
     if (isNotEmpty) {
       try {
-        final regExp = RegExp(
-          "\\b(?:${badWords.join('|')})\\b",
-          caseSensitive: false,
-          dotAll: true,
-        );
-        final result = replaceAllMapped(regExp, (match) {
+        // final regExp = RegExp(
+        //   "\\b(?:${badWords.join('|')})\\b",
+        //   caseSensitive: false,
+        //   dotAll: true,
+        // );
+        final result = replaceAllMapped(badWordsRegExp, (match) {
           final length = match.end - match.start;
           if (length >= 3 && keepFirstLastLetters) {
             final matchedString = substring(match.start, match.end);
@@ -94,12 +94,12 @@ extension StringContains on String {
   List<String> getBadWords() {
     if (isNotEmpty) {
       try {
-        final regExp = RegExp(
-          "\\b(?:${badWords.join('|')})\\b",
-          caseSensitive: false,
-          dotAll: true,
-        );
-        final matched = regExp.allMatches(this);
+        // final regExp = RegExp(
+        //   "\\b(?:${badWords.join('|')})\\b",
+        //   caseSensitive: false,
+        //   dotAll: true,
+        // );
+        final matched = badWordsRegExp.allMatches(this);
         return matched
             .map((match) {
               return substring(match.start, match.end);
@@ -121,18 +121,25 @@ extension StringContains on String {
   ///
   /// returns false if the string is empty.
   ///
+  /// customRegExp is your own custom RegExp.
+  ///
   /// ```dart
   /// 'Please visit our website : https://betterx.io/'.containsUrl() // returns true
   /// ```
 
-  bool containsUrl() {
+  bool containsUrl({RegExp? customRegExp}) {
     if (isNotEmpty) {
-      final RegExp regExp = RegExp(
-        r'(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+',
-        caseSensitive: false,
-        dotAll: true,
-      );
-      return regExp.hasMatch(this);
+      // final RegExp regExp = RegExp(
+      //   r'(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+',
+      //   caseSensitive: false,
+      //   dotAll: true,
+      // );
+      try {
+        final regExp = customRegExp ?? urlRegExp;
+        return regExp.hasMatch(this);
+      } on Exception {
+        return false;
+      }
     }
     return false;
   }
@@ -145,22 +152,26 @@ extension StringContains on String {
   ///
   /// returns empty [List] if the string is empty.
   ///
+  /// customRegExp is your own custom RegExp.
+  ///
   /// ```dart
   /// 'Please visit our website : https://betterx.io/'.getUrls() // returns ['https://betterx.io/']
   /// ```
 
-  List<String> getUrls() {
+  List<String> getUrls({
+    RegExp? customRegExp,
+  }) {
     if (isNotEmpty) {
-      final RegExp regExp = RegExp(
-        r'(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+',
-        caseSensitive: false,
-        dotAll: true,
-      );
-      final matches = regExp.allMatches(this);
-      return matches
-          .map((match) => substring(match.start, match.end))
-          .toSet()
-          .toList();
+      try {
+        final regExp = customRegExp ?? urlRegExp;
+        final matches = regExp.allMatches(this);
+        return matches
+            .map((match) => substring(match.start, match.end))
+            .toSet()
+            .toList();
+      } on Exception {
+        return [];
+      }
     }
     return [];
   }
@@ -173,18 +184,22 @@ extension StringContains on String {
   ///
   /// returns false if the string is empty.
   ///
+  /// customRegExp is your own custom RegExp.
+  ///
   /// ```dart
   /// "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : info@betterx.io".containsEmail() // returns false
   /// ```
 
-  bool containsEmail() {
+  bool containsEmail({
+    RegExp? customRegExp,
+  }) {
     if (isNotEmpty) {
-      final RegExp regExp = RegExp(
-        r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}',
-        caseSensitive: false,
-        dotAll: true,
-      );
-      return regExp.hasMatch(this);
+      try {
+        final regExp = customRegExp ?? emailRegExp;
+        return regExp.hasMatch(this);
+      } on Exception {
+        return false;
+      }
     }
     return false;
   }
@@ -197,22 +212,26 @@ extension StringContains on String {
   ///
   /// returns empty [List] if the string is empty.
   ///
+  /// customRegExp is your own custom RegExp.
+  ///
   /// ```dart
   /// "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : info@betterx.io".getEmails() // returns ['betterx.io']
   /// ```
 
-  List<String> getEmails() {
+  List<String> getEmails({
+    RegExp? customRegExp,
+  }) {
     if (isNotEmpty) {
-      final RegExp regExp = RegExp(
-        r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}',
-        caseSensitive: false,
-        dotAll: true,
-      );
-      final matches = regExp.allMatches(this);
-      return matches
-          .map((match) => substring(match.start, match.end))
-          .toSet()
-          .toList();
+      try {
+        final regExp = customRegExp ?? emailRegExp;
+        final matches = regExp.allMatches(this);
+        return matches
+            .map((match) => substring(match.start, match.end))
+            .toSet()
+            .toList();
+      } on Exception {
+        return [];
+      }
     }
     return [];
   }
@@ -227,36 +246,38 @@ extension StringContains on String {
   ///
   /// obscuringCharacter is defaulted to '*'.
   ///
+  /// customRegExp is your own custom RegExp.
+  ///
   /// ```dart
   /// "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : info@
   /// betterx.io".hideEmails() // returns "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : in**@betterx.io
   /// ```
 
-  String hideEmails({String obscuringCharacter = '*'}) {
+  String hideEmails({String obscuringCharacter = '*', RegExp? customRegExp}) {
     if (isNotEmpty) {
-      final RegExp regExp = RegExp(
-        r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}',
-        caseSensitive: false,
-        dotAll: true,
-      );
-      final result = replaceAllMapped(regExp, (match) {
-        final matchedString = substring(match.start, match.end);
-        final regExpForObscuring = RegExp(
-          r'(?<=^[A-Za-z0-9]{2}).*?(?=@)',
-          caseSensitive: false,
-          dotAll: true,
-        );
-        final computedString = matchedString.replaceAllMapped(
-          regExpForObscuring,
-          (match) {
-            final computedMatchedString =
-                matchedString.substring(match.start, match.end);
-            return obscuringCharacter * computedMatchedString.length;
-          },
-        );
-        return computedString;
-      });
-      return result;
+      try {
+        final regExp = customRegExp ?? emailRegExp;
+        final result = replaceAllMapped(regExp, (match) {
+          final matchedString = substring(match.start, match.end);
+          final regExpForObscuring = RegExp(
+            r'(?<=^[A-Za-z0-9]{2}).*?(?=@)',
+            caseSensitive: false,
+            dotAll: true,
+          );
+          final computedString = matchedString.replaceAllMapped(
+            regExpForObscuring,
+            (match) {
+              final computedMatchedString =
+                  matchedString.substring(match.start, match.end);
+              return obscuringCharacter * computedMatchedString.length;
+            },
+          );
+          return computedString;
+        });
+        return result;
+      } on Exception {
+        return this;
+      }
     }
     return this;
   }
@@ -270,18 +291,23 @@ extension StringContains on String {
   /// returns false if the string does not contain [phone].
   ///
   /// returns false if the string is empty.
+  ///
+  /// customRegExp is your own custom RegExp.
+  ///
   /// ```dart
   /// "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : 91-0000000000".containsPhoneNumber() // returns true
   /// ```
 
-  bool containsPhoneNumber() {
+  bool containsPhoneNumber({
+    RegExp? customRegExp,
+  }) {
     if (isNotEmpty) {
-      final RegExp regExp = RegExp(
-        r'[0-9]{10}',
-        caseSensitive: false,
-        dotAll: true,
-      );
-      return regExp.hasMatch(this);
+      try {
+        final regExp = customRegExp ?? phoneNumberRegExp;
+        return regExp.hasMatch(this);
+      } on Exception {
+        return false;
+      }
     }
     return false;
   }
@@ -295,22 +321,26 @@ extension StringContains on String {
   /// returns empty [List] if the string does not contain [phone].
   ///
   /// returns empty [List] if the string is empty.
+  ///
+  /// customRegExp is your own custom RegExp.
   /// ```dart
   /// "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : 91-0000000000".getPhoneNumbers() // returns ['0000000000']
   /// ```
 
-  List<String> getPhoneNumbers() {
+  List<String> getPhoneNumbers({
+    RegExp? customRegExp,
+  }) {
     if (isNotEmpty) {
-      final RegExp regExp = RegExp(
-        r'[0-9]{10}',
-        caseSensitive: false,
-        dotAll: true,
-      );
-      final matches = regExp.allMatches(this);
-      return matches
-          .map((match) => substring(match.start, match.end))
-          .toSet()
-          .toList();
+      try {
+        final regExp = customRegExp ?? phoneNumberRegExp;
+        final matches = regExp.allMatches(this);
+        return matches
+            .map((match) => substring(match.start, match.end))
+            .toSet()
+            .toList();
+      } on Exception {
+        return [];
+      }
     }
     return [];
   }
@@ -337,27 +367,28 @@ extension StringContains on String {
   String hidePhoneNumbers({
     String obscuringCharacter = '*',
     bool showFirstLastTwoDigits = true,
+    RegExp? customRegExp,
   }) {
     if (isNotEmpty) {
-      final RegExp regExp = RegExp(
-        r'[0-9]{10}',
-        caseSensitive: false,
-        dotAll: true,
-      );
-      final result = replaceAllMapped(regExp, (match) {
-        final matchedString = substring(match.start, match.end);
-        if (showFirstLastTwoDigits) {
-          return matchedString.substring(0, 2) +
-              obscuringCharacter * 6 +
-              matchedString.substring(8);
-        }
-        final computedString = matchedString.replaceAll(
-          RegExp(r'[0-9]'),
-          obscuringCharacter,
-        );
-        return computedString;
-      });
-      return result;
+      try {
+        final regExp = customRegExp ?? phoneNumberRegExp;
+        final result = replaceAllMapped(regExp, (match) {
+          final matchedString = substring(match.start, match.end);
+          if (showFirstLastTwoDigits) {
+            return matchedString.substring(0, 2) +
+                obscuringCharacter * 6 +
+                matchedString.substring(8);
+          }
+          final computedString = matchedString.replaceAll(
+            RegExp(r'[0-9]'),
+            obscuringCharacter,
+          );
+          return computedString;
+        });
+        return result;
+      } on Exception {
+        return this;
+      }
     }
     return this;
   }
@@ -372,6 +403,8 @@ extension StringContains on String {
   ///
   /// caseSensitive is defaulted to false.
   ///
+  /// customRegExp is your own custom RegExp.
+  ///
   /// ```dart
   /// "hi there, i love flutter.".containsWords(["hi", "there","flutter" ]) // returns true
   /// "i love Flutter.".containsWords(["hi", "there","flutter"], caseSensitive: true) // returns false
@@ -380,11 +413,12 @@ extension StringContains on String {
   bool containsWords(List<String> words, {bool caseSensitive = false}) {
     if (isNotEmpty) {
       try {
-        final regExp = RegExp(
-          "\\b(?:${words.join('|')})\\b",
-          caseSensitive: caseSensitive,
-          dotAll: true,
-        );
+        // final regExp = RegExp(
+        //   "\\b(?:${words.join('|')})\\b",
+        //   caseSensitive: caseSensitive,
+        //   dotAll: true,
+        // );
+        final regExp = wordsRegExp(words, caseSensitive: caseSensitive);
         return regExp.hasMatch(this);
       } on Exception {
         return false;
@@ -421,24 +455,163 @@ extension StringContains on String {
     bool keepFirstLastLetters = true,
   }) {
     if (isNotEmpty) {
-      final regExp = RegExp(
-        "\\b(?:${words.join('|')})\\b",
-        caseSensitive: caseSensitive,
-        dotAll: true,
-      );
-      final result = replaceAllMapped(regExp, (match) {
-        final length = match.end - match.start;
-        if (length >= 3 && keepFirstLastLetters) {
-          final matchedString = substring(match.start, match.end);
-          final cleaned = matchedString.split('').first +
-              obscuringCharacter * (length - 2) +
-              matchedString.split('').last;
-          return cleaned;
-        }
-        return obscuringCharacter * length;
-      });
-      return result;
+      // final regExp = RegExp(
+      //   "\\b(?:${words.join('|')})\\b",
+      //   caseSensitive: caseSensitive,
+      //   dotAll: true,
+      // );
+      try {
+        final regExp = wordsRegExp(words, caseSensitive: caseSensitive);
+        final result = replaceAllMapped(regExp, (match) {
+          final length = match.end - match.start;
+          if (length >= 3 && keepFirstLastLetters) {
+            final matchedString = substring(match.start, match.end);
+            final cleaned = matchedString.split('').first +
+                obscuringCharacter * (length - 2) +
+                matchedString.split('').last;
+            return cleaned;
+          }
+          return obscuringCharacter * length;
+        });
+        return result;
+      } on Exception {
+        return this;
+      }
     }
     return this;
+  }
+
+  /// Checks if the string contains [hashtag].
+  ///
+  /// returns true if the string contains [hashtag].
+  ///
+  /// returns false if the string does not contain [hashtag].
+  ///
+  /// returns false if the string is empty.
+  ///
+  /// customRegExp is your own custom RegExp.
+  ///
+  /// ```dart
+  /// "hi there, i love #flutter.".containsHashtag() // returns true
+  /// "i love #Flutter.".containsHashtag() // returns true
+  /// "i love Flutter.".containsHashtag() // returns false
+  /// ```
+
+  bool containsHashtag({
+    RegExp? customRegExp,
+  }) {
+    if (isNotEmpty) {
+      try {
+        final regExp = customRegExp ?? hashtagRegExp;
+        return regExp.hasMatch(this);
+      } on Exception {
+        return false;
+      }
+    }
+    return false;
+  }
+
+  /// Get the [List<String>] of [hashtag] from the string.
+  ///
+  /// returns [List<String>] if the string contains [hashtag].
+  ///
+  /// returns empty [List<String>] if the string does not contain [hashtag].
+  ///
+  /// returns empty [List<String>] if the string is empty.
+  ///
+  /// customRegExp is your own custom RegExp.
+  ///
+  /// ```dart
+  /// "hi there, i love #flutter.".getHashtags() // returns ["flutter"]
+  /// "i love #Flutter.".getHashtags() // returns ["Flutter"]
+  /// "i love Flutter.".getHashtags() // returns []
+  /// ```
+
+  List<String> getHashtags({
+    RegExp? customRegExp,
+  }) {
+    if (isNotEmpty) {
+      try {
+        final regExp = customRegExp ?? hashtagRegExp;
+        final result = regExp
+            .allMatches(this)
+            .map((match) {
+              return substring(match.start + 1, match.end);
+            })
+            .toSet()
+            .toList();
+        return result;
+      } on Exception {
+        return [];
+      }
+    }
+    return [];
+  }
+
+  /// Checks if the string contains [mention].
+  ///
+  /// returns true if the string contains [mention].
+  ///
+  /// returns false if the string does not contain [mention].
+  ///
+  /// returns false if the string is empty.
+  ///
+  /// customRegExp is your own custom RegExp.
+  ///
+  /// ```dart
+  /// "hi there, i love @flutter.".containsMention() // returns true
+  /// "i love @Flutter.".containsMention() // returns true
+  /// "i love Flutter.".containsMention() // returns false
+  /// ```
+
+  bool containsMention({
+    RegExp? customRegExp,
+  }) {
+    if (isNotEmpty) {
+      try {
+        final regExp = customRegExp ?? mentionRegExp;
+        return regExp.hasMatch(this);
+      } on Exception {
+        return false;
+      }
+    }
+    return false;
+  }
+
+  /// Get the [List<String>] of [mention] from the string.
+  ///
+  /// returns [List<String>] if the string contains [mention].
+  ///
+  /// returns empty [List<String>] if the string does not contain [mention].
+  ///
+  /// returns empty [List<String>] if the string is empty.
+  ///
+  /// customRegExp is your own custom RegExp.
+  ///
+  /// ```dart
+  /// "hi there, i love @flutter.".getMentions() // returns ["flutter"]
+  /// "i love @Flutter.".getMentions() // returns ["Flutter"]
+  /// "i love Flutter.".getMentions() // returns []
+  /// ```
+
+  List<String> getMentions({
+    RegExp? customRegExp,
+  }) {
+    if (isNotEmpty) {
+      try {
+        final regExp = customRegExp ?? mentionRegExp;
+        final result = regExp
+            .allMatches(this)
+            .map((match) {
+              return substring(match.start + 1, match.end);
+            })
+            .toSet()
+            .toList();
+        return result;
+      } on Exception {
+        return [];
+      }
+    }
+    return [];
   }
 }

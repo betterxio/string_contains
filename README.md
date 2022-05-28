@@ -1,6 +1,6 @@
 # string_contains
 
-Extension on String that provides a methods to check, if a string contains specific words/phrases/Regex/etc.
+Extension on String that provides a methods to check, if a string contains any bad-words/url/link/email/phone number/hashtag/mention and more others.
 
 # Installing
 
@@ -10,7 +10,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  string_contains: 0.0.1
+  string_contains: 0.0.2
 ```
 
 ### 2. Install it
@@ -86,5 +86,6 @@ import 'package:string_contains/string_contains.dart';
 "i love Flutter.".cleanWords(["hi", "there","flutter"], keepFirstLastLetters: false) // returns "i love *******."
 ```
 
-# TODO
-clean widget
+# Maintainers
+- [Ravi Kovind](https://ravikovind.github.io/)
+

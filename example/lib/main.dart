@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'StringContains Example',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -115,6 +115,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headline6?.copyWith(
                         color: Theme.of(context).errorColor,
+                      ),
+                ),
+                const Divider(),
+                CleanWidget(
+                  source:
+                      '$stringContainsBadWords\n $stringContainsUrl\n $stringContainsMultipleUrls\n $stringContainsEmail\n $stringContainsPhoneNumber\n $normalString',
+                  obscuringCharacter: '\$',
+                  style: Theme.of(context).textTheme.headline6?.copyWith(
+                        color: Theme.of(context).primaryColorDark,
                       ),
                 ),
               ],
