@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:string_contains/src/utils/constants.dart';
 import 'models/string_contains_element.dart';
 
-/// callback for [StringContainsElement].
-typedef OnTapCallBack = void Function(StringContainsElement)?;
+/// Cal Back [Function] for [StringContainsElement].
+typedef OnTapCallBack = void Function(StringContainsElement);
 
+/// [StringContainsWidget] highlights the url, email, phone number, hashtag, mention and [highLightWords].
+/// provides [onTap] callback for each element of type [StringContainsElementType].
 /// [StringContainsWidget] is a widget that displays a string that contains a
-/// certain [StringContainsElementType].
+/// certain [StringContainsElementType]s.
 
 class StringContainsWidget extends StatelessWidget {
   /// source is the text to be cleaned.

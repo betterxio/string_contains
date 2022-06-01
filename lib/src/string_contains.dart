@@ -295,7 +295,7 @@ extension StringContains on String {
   /// customRegExp is your own custom RegExp.
   ///
   /// ```dart
-  /// "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : 91-0000000000".containsPhoneNumber() // returns true
+  /// "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : 91-9000000001".containsPhoneNumber() // returns true
   /// ```
 
   bool containsPhoneNumber({
@@ -324,7 +324,7 @@ extension StringContains on String {
   ///
   /// customRegExp is your own custom RegExp.
   /// ```dart
-  /// "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : 91-0000000000".getPhoneNumbers() // returns ['0000000000']
+  /// "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : 91-9000000001".getPhoneNumbers() // returns ['9000000001']
   /// ```
 
   List<String> getPhoneNumbers({
@@ -360,9 +360,9 @@ extension StringContains on String {
   /// showFirstLastTwoDigits is defaulted to true.
 
   /// ```dart
-  /// "91-0000000000".hidePhoneNumbers() // returns "91-00******00"
-  /// "91-0000000000".hidePhoneNumbers(showFirstLastTwoDigits: false) // returns "91-********"
-  /// "91-0000000000".hidePhoneNumbers(obscuringCharacter: '#') // returns "91-84######00"
+  /// "91-9000000001".hidePhoneNumbers() // returns "91-00******00"
+  /// "91-9000000001".hidePhoneNumbers(showFirstLastTwoDigits: false) // returns "91-********"
+  /// "91-9000000001".hidePhoneNumbers(obscuringCharacter: '#') // returns "91-84######00"
   /// ```
   String hidePhoneNumbers({
     String obscuringCharacter = '*',

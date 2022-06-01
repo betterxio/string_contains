@@ -1,49 +1,49 @@
 import 'bad_words.dart';
 
-/// RegExp for detecting [badWords].
-/// List of bad words is taken from [badWords].
+/// [RegExp] for detecting [badWords].
+/// [List] of bad words is taken from [badWords].
 final badWordsRegExp = RegExp(
   "\\b(?:${badWords.join('|')})\\b",
   caseSensitive: false,
   dotAll: true,
 );
 
-/// RegExp for detecting [url].
+/// [RegExp] for detecting [url].
 final urlRegExp = RegExp(
   r"(http(s)?:\/\/)?(www.)?[a-zA-Z0-9]{2,256}\.[a-zA-Z0-9]{2,256}(\.[a-zA-Z0-9]{2,256})?([-a-zA-Z0-9@:%_\+~#?&//=.]*)([-a-zA-Z0-9@:%_\+~#?&//=]+)",
   caseSensitive: false,
   dotAll: true,
 );
 
-/// RegExp for detecting [email].
+/// [RegExp] for detecting [email].
 final emailRegExp = RegExp(
   r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}',
   caseSensitive: false,
   dotAll: true,
 );
 
-/// RegExp for detecting [phoneNumber].
+/// [RegExp] for detecting [phoneNumber].
 final phoneNumberRegExp = RegExp(
   r'[0-9]{10}',
   caseSensitive: false,
   dotAll: true,
 );
 
-/// RegExp for detecting [hashtag].
+/// [RegExp] for detecting [hashtag].
 final hashtagRegExp = RegExp(
   r'#[a-zA-Z0-9_]+',
   caseSensitive: false,
   dotAll: true,
 );
 
-/// RegExp for detecting [mention].
+/// [RegExp] for detecting [mention].
 final mentionRegExp = RegExp(
   r'(^|[^\w])@([\w\_\.]+)',
   caseSensitive: false,
   dotAll: true,
 );
 
-/// RegExp for detecting List<String> [words].
+/// [RegExp] for detecting List<String> [words].
 RegExp wordsRegExp(List<String> words, {bool caseSensitive = false}) {
   final regExp = RegExp(
     "\\b(?:${words.join('|')})\\b",
@@ -53,7 +53,7 @@ RegExp wordsRegExp(List<String> words, {bool caseSensitive = false}) {
   return regExp;
 }
 
-/// enum for [StringContainsElementType]
+/// [enum] for [StringContainsElementType]
 /// which is used to determine which type of element is detected.
 ///
 /// [StringContainsElementType.url] is used for detecting url.
@@ -84,80 +84,21 @@ enum StringContainsElementType {
 /// [StringContainsElementType.url] is before [StringContainsElementType.words]
 /// [StringContainsElementType.words] is before [StringContainsElementType.none]
 
+///
+/// [extension] on [StringContainsElementType].
+/// this extension is used to sort [StringContainsElementType] in order.
+/// [StringContainsElementType.email] is before [StringContainsElementType.phoneNumber]
+/// [StringContainsElementType.phoneNumber] is before [StringContainsElementType.hashtag]
+/// [StringContainsElementType.hashtag] is before [StringContainsElementType.mention]
+/// [StringContainsElementType.mention] is before [StringContainsElementType.url]
+/// [StringContainsElementType.url] is before [StringContainsElementType.words]
+/// [StringContainsElementType.words] is before [StringContainsElementType.none]
+///
 extension on StringContainsElementType {
   int compareTo(StringContainsElementType other) =>
       index.compareTo(other.index);
 }
 
-// List<StringContainsElement> stringContainsElements(
-//   String source, {
-//   List<String> words = const [],
-//   bool caseSensitive = false,
-// }) {
-//   final elements = <StringContainsElement>[];
-//   if (source.containsUrl()) {
-//     final urls = source.getUrls();
-//     for (final url in urls) {
-//       elements.add(StringContainsElement(
-//         StringContainsElementType.url,
-//         url,
-//         source.indexOf(url),
-//         source.indexOf(url) + url.length,
-//       ));
-//     }
-//   } else if (source.containsEmail()) {
-//     final emails = source.getEmails();
-//     for (final email in emails) {
-//       elements.add(StringContainsElement(
-//         StringContainsElementType.email,
-//         email,
-//         source.indexOf(email),
-//         source.indexOf(email) + email.length,
-//       ));
-//     }
-//   } else if (source.containsPhoneNumber()) {
-//     final phoneNumbers = source.getPhoneNumbers();
-//     for (final phoneNumber in phoneNumbers) {
-//       elements.add(StringContainsElement(
-//         StringContainsElementType.phoneNumber,
-//         phoneNumber,
-//         source.indexOf(phoneNumber),
-//         source.indexOf(phoneNumber) + phoneNumber.length,
-//       ));
-//     }
-//   } else if (source.containsHashtag()) {
-//     final hashtags = source.getHashtags();
-//     for (final hashtag in hashtags) {
-//       elements.add(StringContainsElement(
-//         StringContainsElementType.hashtag,
-//         hashtag,
-//         source.indexOf(hashtag),
-//         source.indexOf(hashtag) + hashtag.length,
-//       ));
-//     }
-//   } else if (source.containsMention()) {
-//     final mentions = source.getMentions();
-//     for (final mention in mentions) {
-//       elements.add(StringContainsElement(
-//         StringContainsElementType.mention,
-//         mention,
-//         source.indexOf(mention),
-//         source.indexOf(mention) + mention.length,
-//       ));
-//     }
-//   } else if (source.containsWords(words, caseSensitive: caseSensitive)) {
-//     final wordList = source.getWords(words, caseSensitive: caseSensitive);
-//     for (final word in wordList) {
-//       elements.add(StringContainsElement(
-//         StringContainsElementType.words,
-//         word,
-//         source.indexOf(word),
-//         source.indexOf(word) + word.length,
-//       ));
-//     }
-//   }
-//   return elements;
-// }
 /// [createRegExpFromTypes] is used to combine multiple [RegExp]s.
 /// [types] is a list of [StringContainsElementType]s.
 /// [caseSensitive] is used to determine whether the [RegExp] of [words] is case sensitive.
@@ -279,22 +220,4 @@ StringContainsElementType stringToType(
     }
   }
   return StringContainsElementType.none;
-  // if (string.containsEmail()) {
-  //   return StringContainsElementType.email;
-  // } else if (string.containsPhoneNumber()) {
-  //   return StringContainsElementType.phoneNumber;
-  // } else if (string.containsHashtag()) {
-  //   return StringContainsElementType.hashtag;
-  // } else if (string.containsMention()) {
-  //   return StringContainsElementType.mention;
-  // } else if (string.containsUrl()) {
-  //   return StringContainsElementType.url;
-  // } else if (string.containsWords(
-  //   words,
-  //   caseSensitive: caseSensitive,
-  // )) {
-  //   return StringContainsElementType.words;
-  // } else {
-  //   return StringContainsElementType.none;
-  // }
 }

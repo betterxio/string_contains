@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'Please visit our website : https://betterx.io/ and you can search for any thing on google : google.com, I love Dart : https://dart.dev/, you can practice on : https://dartpad.dev/. Flutter uses Dart, you can create your own app with Flutter : https://flutter.dev/, this is a good example of Flutter : https://flutter.dev/docs/get-started/.';
   final stringContainsEmail =
       "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : info@betterx.io. My Personal Email : ravikumar2710999@gmail.com.\n A fake email : gedoye9446@roxoas.com.";
-  final stringContainsPhoneNumber = 'My Phone Number : +91-8433491441';
+  final stringContainsPhoneNumber = 'My Phone Number : +91-9000000001';
   final normalString = 'I love Dart and Flutter';
   final stringContainsHashtags =
       'I love #dart and #flutter. @flutter is #awesome';
@@ -140,14 +140,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                 ),
                 const Divider(),
+                Text(
+                  '$stringContainsBadWords\n$stringContainsUrl\n$stringContainsMultipleUrls\n$stringContainsEmail\n$stringContainsPhoneNumber\n$normalString\n\n',
+                ),
+                const Divider(),
                 CleanWidget(
                   isSelecatable: true,
                   source:
-                      '$stringContainsBadWords\n$stringContainsUrl\n$stringContainsMultipleUrls\n$stringContainsEmail\n$stringContainsPhoneNumber\n$normalString',
-                  obscuringCharacter: '\$',
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
-                        color: Theme.of(context).primaryColorDark,
-                      ),
+                      '$stringContainsBadWords\n$stringContainsUrl\n$stringContainsMultipleUrls\n$stringContainsEmail\n$stringContainsPhoneNumber\n$normalString\n\n',
                 ),
                 const Divider(),
                 Text(

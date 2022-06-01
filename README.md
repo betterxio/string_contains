@@ -1,6 +1,11 @@
 # string_contains
 
-Extension on String that provides a methods to check, if a string contains any bad-words/url/link/email/phone number/hashtag/mention and more others.
+[![pub package](https://img.shields.io/pub/v/string_contains?style=flat)](https://pub.dev/packages/string_contains) 
+[![pub points](https://badges.bar/string_contains/pub%20points)](https://pub.dev/packages/string_contains/score) 
+[![popularity](https://badges.bar/string_contains/popularity)](https://pub.dev/packages/string_contains/score)
+[![likes](https://badges.bar/string_contains/likes)](https://pub.dev/packages/string_contains/score) 
+
+Package provides light widgets [for Linkify, Clean] and extensions for strings that contain bad words/urls/links/emails/phone numbers/#hashtags/@mentions and others.
 
 # Installing
 
@@ -86,20 +91,14 @@ import 'package:string_contains/string_contains.dart';
 "i love Flutter.".cleanWords(["hi", "there","flutter"], keepFirstLastLetters: false) // returns "i love *******."
 ```
 
-```dart
-CleanWidget(
-                  source:
-                      'I am CEO, Bitch Please visit our website : https://betterx.io/. Please visit our website : https://betterx.io/ and you can search for any thing on google : google.com, I love Dart : https://dart.dev/, you can practice on : https://dartpad.dev/. Flutter uses Dart, you can create your own app with Flutter : https://flutter.dev/, this is a good example of Flutter : https://flutter.dev/docs/get-started/. BetterX.io : Let's build something Better, User-centered & beautiful together for more info contact us at : info@betterx.io. My Personal Email : ravikumar2710999@gmail.com. A fake email : gedoye9446@roxoas.com. My Phone Number : +91-8433491441 I love Dart and Flutter I love #dart and #flutter. @flutter is #awesome',
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
-                        color: Theme.of(context).primaryColorDark,
-                      ),
-                ),
-```
 
-````dart
+ StringContainsWidget highlights the url, email, phone number, hashtag, mention and highLightWords. it provides onTap callback for each element of type StringContainsElementType.
+ StringContainsWidget is a widget that displays a string that contains a certain StringContainsElementTypes.
+
+```dart
   StringContainsWidget(
                 source:
-                    'I am CEO, Bitch Please visit our website : https://betterx.io/. Please visit our website : https://betterx.io/ and you can search for any thing on google : google.com, I love Dart : https://dart.dev/, you can practice on : https://dartpad.dev/. Flutter uses Dart, you can create your own app with Flutter : https://flutter.dev/, this is a good example of Flutter : https://flutter.dev/docs/get-started/. BetterX.io : Let's build something Better, User-centered & beautiful together for more info contact us at : info@betterx.io. My Personal Email : ravikumar2710999@gmail.com. A fake email : gedoye9446@roxoas.com. My Phone Number : +91-8433491441. I love Dart and Flutter I love #dart and #flutter. @flutter is #awesome',
+                    'I am CEO, Bitch Please visit our website : https://betterx.io/. Please visit our website : https://betterx.io/ and you can search for any thing on google : google.com, I love Dart : https://dart.dev/, you can practice on : https://dartpad.dev/. Flutter uses Dart, you can create your own app with Flutter : https://flutter.dev/, this is a good example of Flutter : https://flutter.dev/docs/get-started/. BetterX.io : Let's build something Better, User-centered & beautiful together for more info contact us at : info@betterx.io. My Personal Email : ravikumar2710999@gmail.com. A fake email : gedoye9446@roxoas.com. My Phone Number : +91-9000000001. I love Dart and Flutter I love #dart and #flutter. @flutter is #awesome',
                 onTap: (url) {
                   print('element is a ${url.value} and type of ${url.type}');
                   if (url.type == StringContainsElementType.words) {
@@ -129,10 +128,30 @@ CleanWidget(
                   StringContainsElementType.mention,
                   StringContainsElementType.words,
                 ],
-              ),
-              ```
+),
+```
+<p>
+    <img src="https://raw.githubusercontent.com/betterxio/string_contains/main/assets/string-contains-widget.png" width="200px" height="auto" hspace="20"/>
+<p>
+
+
+CleanWidget
+it used to clean up bad-words/hide emails/hide phoneNumbers/partially or fully hide extra words from the source string. return a clean Text widget.
+
+
+
+```dart
+CleanWidget(
+            source:
+                      'I am CEO, Bitch Please visit our website : https://betterx.io/. Please visit our website : https://betterx.io/ and you can search for any thing on google : google.com, I love Dart : https://dart.dev/, you can practice on : https://dartpad.dev/. Flutter uses Dart, you can create your own app with Flutter : https://flutter.dev/, this is a good example of Flutter : https://flutter.dev/docs/get-started/. BetterX.io : Let's build something Better, User-centered & beautiful together for more info contact us at : info@betterx.io. My Personal Email : ravikumar2710999@gmail.com. A fake email : gedoye9446@roxoas.com. My Phone Number : +91-9000000001 I love Dart and Flutter I love #dart and #flutter. @flutter is #awesome',
+                  style: Theme.of(context).textTheme.headline6?.copyWith(
+                        color: Theme.of(context).primaryColorDark,
+                ),
+),
+```
+</p>
+    <img src="https://raw.githubusercontent.com/betterxio/string_contains/main/assets/clean-widget.png" width="200px" height="auto" hspace="20"/>
+</p>
 
 # Maintainers
 - [Ravi Kovind](https://ravikovind.github.io/)
-
-````
