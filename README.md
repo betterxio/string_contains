@@ -131,7 +131,7 @@ import 'package:string_contains/string_contains.dart';
 ),
 ```
 <p>
-    <img src="https://raw.githubusercontent.com/betterxio/string_contains/main/assets/string-contains-widget.png" width="200px" height="auto" hspace="20"/>
+    <img src="https://raw.githubusercontent.com/betterxio/string_contains/main/assets/string-contains-widget.png" width="240px" height="auto" hspace="20"/>
 <p>
 
 
@@ -150,7 +150,7 @@ CleanWidget(
 ),
 ```
 </p>
-    <img src="https://raw.githubusercontent.com/betterxio/string_contains/main/assets/clean-widget.png" width="200px" height="auto" hspace="20"/>
+    <img src="https://raw.githubusercontent.com/betterxio/string_contains/main/assets/clean-widget.png" width="240px" height="auto" hspace="20"/>
 </p>
 
 # Maintainers
