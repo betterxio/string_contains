@@ -86,6 +86,53 @@ import 'package:string_contains/string_contains.dart';
 "i love Flutter.".cleanWords(["hi", "there","flutter"], keepFirstLastLetters: false) // returns "i love *******."
 ```
 
+```dart
+CleanWidget(
+                  source:
+                      'I am CEO, Bitch Please visit our website : https://betterx.io/. Please visit our website : https://betterx.io/ and you can search for any thing on google : google.com, I love Dart : https://dart.dev/, you can practice on : https://dartpad.dev/. Flutter uses Dart, you can create your own app with Flutter : https://flutter.dev/, this is a good example of Flutter : https://flutter.dev/docs/get-started/. BetterX.io : Let's build something Better, User-centered & beautiful together for more info contact us at : info@betterx.io. My Personal Email : ravikumar2710999@gmail.com. A fake email : gedoye9446@roxoas.com. My Phone Number : +91-8433491441 I love Dart and Flutter I love #dart and #flutter. @flutter is #awesome',
+                  style: Theme.of(context).textTheme.headline6?.copyWith(
+                        color: Theme.of(context).primaryColorDark,
+                      ),
+                ),
+```
+
+````dart
+  StringContainsWidget(
+                source:
+                    'I am CEO, Bitch Please visit our website : https://betterx.io/. Please visit our website : https://betterx.io/ and you can search for any thing on google : google.com, I love Dart : https://dart.dev/, you can practice on : https://dartpad.dev/. Flutter uses Dart, you can create your own app with Flutter : https://flutter.dev/, this is a good example of Flutter : https://flutter.dev/docs/get-started/. BetterX.io : Let's build something Better, User-centered & beautiful together for more info contact us at : info@betterx.io. My Personal Email : ravikumar2710999@gmail.com. A fake email : gedoye9446@roxoas.com. My Phone Number : +91-8433491441. I love Dart and Flutter I love #dart and #flutter. @flutter is #awesome',
+                onTap: (url) {
+                  print('element is a ${url.value} and type of ${url.type}');
+                  if (url.type == StringContainsElementType.words) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          '${url.value} is awesome!!',
+                        ),
+                        duration: const Duration(seconds: 2),
+                        dismissDirection: DismissDirection.horizontal,
+                      ),
+                    );
+                  }
+                },
+                highLightWords: const [
+                  'Flutter',
+                  'Dart',
+                ],
+                highlightWordsStyle: const TextStyle(
+                  color: Colors.red,
+                ),
+                types: const [
+                  StringContainsElementType.email,
+                  StringContainsElementType.url,
+                  StringContainsElementType.phoneNumber,
+                  StringContainsElementType.hashtag,
+                  StringContainsElementType.mention,
+                  StringContainsElementType.words,
+                ],
+              ),
+              ```
+
 # Maintainers
 - [Ravi Kovind](https://ravikovind.github.io/)
 
+````

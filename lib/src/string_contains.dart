@@ -427,6 +427,47 @@ extension StringContains on String {
     return false;
   }
 
+  /// Get [List] of all [words] from the string.
+  ///
+  /// returns [List] if the string contains given [List] words.
+  ///
+  /// returns empty [List] if the string does not contain given [List] words.
+  ///
+  /// returns empty [List] if the string is empty.
+  ///
+  /// caseSensitive is defaulted to false.
+  ///
+  /// customRegExp is your own custom RegExp.
+  ///
+  /// ```dart
+  /// "hi there, i love flutter.".getWords(["hi", "there","flutter" ]) // returns ['hi', 'there', 'flutter']
+  /// "i love Flutter.".getWords(["hi", "there","flutter"], caseSensitive: true) // returns []
+  /// ```
+
+  List<String> getWords(
+    List<String> words, {
+    bool caseSensitive = false,
+  }) {
+    if (isNotEmpty) {
+      try {
+        // final regExp = RegExp(
+        //   "\\b(?:${words.join('|')})\\b",
+        //   caseSensitive: caseSensitive,
+        //   dotAll: true,
+        // );
+        final regExp = wordsRegExp(words, caseSensitive: caseSensitive);
+        final matches = regExp.allMatches(this);
+        return matches
+            .map((match) => substring(match.start, match.end))
+            .toSet()
+            .toList();
+      } on Exception {
+        return [];
+      }
+    }
+    return [];
+  }
+
   /// Clean the string from given [List] words.
   ///
   /// returns clean [String] if the string contains given [List] words.
