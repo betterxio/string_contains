@@ -56,8 +56,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text(
                   '$stringContainsBadWords contains bad-word/profane-word : ${stringContainsBadWords.containsBadWord() == true ? 'Yes' : 'No'}\n clean bad words: ${stringContainsBadWords.cleanBadWords()}',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
-                        color: Theme.of(context).errorColor,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.error,
                       ),
                 ),
                 const Divider(),
@@ -65,8 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text(
                   '$stringContainsUrl contains url : ${stringContainsUrl.containsUrl() == true ? 'Yes' : 'No'}\n get all urls: ${stringContainsUrl.getUrls()}',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
-                        color: Theme.of(context).errorColor,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.error,
                       ),
                 ),
                 const Divider(),
@@ -74,8 +74,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text(
                   '$stringContainsMultipleUrls contain urls : ${stringContainsMultipleUrls.containsUrl() == true ? 'Yes' : 'No'}\n get all urls:\n${stringContainsMultipleUrls.getUrls().join('\n')}',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
-                        color: Theme.of(context).errorColor,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.error,
                       ),
                 ),
                 const Divider(),
@@ -83,8 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text(
                   '$stringContainsEmail contains email : ${stringContainsEmail.containsEmail() == true ? 'Yes' : 'No'}\n get all emails:\n${stringContainsEmail.getEmails().join('\n')}\n',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
-                        color: Theme.of(context).errorColor,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.error,
                       ),
                 ),
                 const Divider(),
@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text(
                   stringContainsEmail.hideEmails(),
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: Theme.of(context).primaryColor,
                       ),
                 ),
@@ -103,8 +103,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     obscuringCharacter: '\$',
                   )}',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
-                        color: Theme.of(context).errorColor,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.error,
                       ),
                 ),
                 const Divider(),
@@ -117,8 +117,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ['flutter', 'dart'],
                   )}',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
-                        color: Theme.of(context).errorColor,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.error,
                       ),
                 ),
                 const Divider(),
@@ -126,8 +126,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text(
                   '$stringContainsHashtags contains hashtags : ${stringContainsHashtags.containsHashtag() == true ? 'Yes' : 'No'}\n get all hashtags:\n${stringContainsHashtags.getHashtags().join('\n')}',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
-                        color: Theme.of(context).errorColor,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.error,
                       ),
                 ),
                 const Divider(),
@@ -135,8 +135,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text(
                   '$stringContainsHashtags maintains hashtags : ${stringContainsHashtags.containsMention() == true ? 'Yes' : 'No'}\n get all maintains:\n${stringContainsHashtags.getMentions().join('\n')}',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
-                        color: Theme.of(context).errorColor,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.error,
                       ),
                 ),
                 const Divider(),

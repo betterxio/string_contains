@@ -1,9 +1,10 @@
 # string_contains
 
-[![pub package](https://img.shields.io/pub/v/string_contains?style=flat)](https://pub.dev/packages/string_contains) 
-[![pub points](https://badges.bar/string_contains/pub%20points)](https://pub.dev/packages/string_contains/score) 
-[![popularity](https://badges.bar/string_contains/popularity)](https://pub.dev/packages/string_contains/score)
-[![likes](https://badges.bar/string_contains/likes)](https://pub.dev/packages/string_contains/score) 
+[![pub package](https://img.shields.io/pub/v/string_contains?style=flat)](https://pub.dev/packages/string_contains)
+[![GitHub issues](https://img.shields.io/github/issues/betterxio/string_contains?style=flat)](https://pub.dev/packages/string_contains)
+[![GitHub license](https://img.shields.io/github/license/betterxio/string_contains?style=flat)](https://pub.dev/packages/string_contains)
+
+
 
 Package provides light widgets [for Linkify, Clean] and extensions for strings that contain bad words/urls/links/emails/phone numbers/#hashtags/@mentions and others.
 
@@ -91,9 +92,8 @@ import 'package:string_contains/string_contains.dart';
 "i love Flutter.".cleanWords(["hi", "there","flutter"], keepFirstLastLetters: false) // returns "i love *******."
 ```
 
-
- StringContainsWidget highlights the url, email, phone number, hashtag, mention and highLightWords. it provides onTap callback for each element of type StringContainsElementType.
- StringContainsWidget is a widget that displays a string that contains a certain StringContainsElementTypes.
+StringContainsWidget highlights the url, email, phone number, hashtag, mention and highLightWords. it provides onTap callback for each element of type StringContainsElementType.
+StringContainsWidget is a widget that displays a string that contains a certain StringContainsElementTypes.
 
 ```dart
   StringContainsWidget(
@@ -130,15 +130,13 @@ import 'package:string_contains/string_contains.dart';
                 ],
 ),
 ```
+
 <p>
     <img src="https://raw.githubusercontent.com/betterxio/string_contains/main/assets/string-contains-widget.png" width="240px" height="auto" hspace="20"/>
 <p>
 
-
 CleanWidget
 it used to clean up bad-words/hide emails/hide phoneNumbers/partially or fully hide extra words from the source string. return a clean Text widget.
-
-
 
 ```dart
 CleanWidget(
@@ -149,9 +147,11 @@ CleanWidget(
                 ),
 ),
 ```
+
 </p>
     <img src="https://raw.githubusercontent.com/betterxio/string_contains/main/assets/clean-widget.png" width="240px" height="auto" hspace="20"/>
 </p>
 
 # Maintainers
+
 - [Ravi Kovind](https://ravikovind.github.io/)

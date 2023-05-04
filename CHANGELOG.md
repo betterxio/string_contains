@@ -11,3 +11,9 @@
 * CleanWidget now supports a custom list of words to be removed.
 * StringContainsWidget added.
 * Updated methods to check if a string contains a hashtag, a mention.
+
+## 1.0.0
+* Fixed All warning
+* Update all the packages
+* Updated README.md and LICENSE
+* Tested
