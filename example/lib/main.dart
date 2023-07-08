@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final stringContainsEmail =
       "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : info@betterx.io. My Personal Email : ravikumar2710999@gmail.com.\n A fake email : gedoye9446@roxoas.com.";
   final stringContainsPhoneNumber =
-  '''My Phone Number : +91-9000000001 and some of other eg. of phone numbers ->
+      '''My Phone Number : +91-9000000001 and some of other eg. of phone numbers ->
 
   /// 0. 9000000769
   /// 1. (123) 456-7890
@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final normalString = 'I love Dart and Flutter';
   final stringContainsHashtags =
-      'I love #dart and #flutter. @flutter is #awesome';
+      'I love #dart and #flutter. @flutter is #awesome. #dart are #amazing.';
 
   String? stringOfBadWords = 'I am ceo bitch';
 
@@ -253,6 +253,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     'Flutter',
                     'Dart',
                   ],
+                  caseSensitive: false,
                   highlightWordsStyle: const TextStyle(
                     color: Colors.red,
                   ),

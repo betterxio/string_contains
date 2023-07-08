@@ -4,7 +4,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/betterxio/string_contains?style=flat)](https://pub.dev/packages/string_contains)
 [![GitHub license](https://img.shields.io/github/license/betterxio/string_contains?style=flat)](https://pub.dev/packages/string_contains)
 
-Package provides light widgets [for Linkify, Clean] and extensions for strings and nullable strings that contain bad words/urls/links/emails/phone numbers/#hashtags/@mentions and others.
+Package provides light widgets[for Linkify, Clean] and string scanner extensions on a string to check it contains bad words/urls/links/emails/phone numbers/#hashtags/@mentions etc.
 
 # Installing
 
@@ -14,7 +14,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  string_contains: 1.5.0
+  string_contains: ^2.2.0
 ```
 
 ### 2. Install it
@@ -24,13 +24,13 @@ You can install packages from the command line:
 with `pub`:
 
 ```
-$ pub get
+$ dart pub add string_contains
 ```
 
 with `Flutter`:
 
 ```
-$ flutter pub get
+$ flutter pub add string_contains
 ```
 
 ### 3. Import it
@@ -47,6 +47,14 @@ Import the library.
 
 ```dart
 import 'package:string_contains/string_contains.dart';
+```
+
+You can use the extension methods on String and Nullable String.
+
+```dart
+final String? nullableString = "International phone number +91-9000000001. others 123-456-7890 and (123)-456-7890.";
+print(nullableString.containsPhoneNumber()); // returns true
+print(nullableString.getPhoneNumbers()); // returns ['+91-9000000001', '123-456-7890', '(123)-456-7890']
 ```
 
 # Example
@@ -152,4 +160,16 @@ CleanWidget(
 
 # Maintainers
 
-- [Ravi Kovind](https://ravikovind.github.io/)
+- ###### [Ravi Kovind](https://ravikovind.github.io/)
+
+- ###### [BetterX](https://github.com/betterxio)
+
+# Disclaimer
+
+This library is not a replacement for human review of potentially offensive content. The purpose of this library is to help surface potentially offensive content to human reviewers. It is not a perfect solution for identifying potentially offensive content.
+
+# Issues and feedback
+
+Open to `suggestions` and `contributions`.
+Please file [issues](https://github.com/betterxio/string_contains/issues) to send feedback or report a bug.
+Thank you!

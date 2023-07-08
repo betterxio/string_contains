@@ -157,14 +157,13 @@ class CleanWidget extends StatelessWidget {
   /// It can be used to clean up text that is used in a widget.
   ///
   String cleanText(String source) {
-    if (hideEmails && hidePhoneNumbers) {
+    if (hideEmails) {
       source = source.hideEmails(obscuringCharacter: obscuringCharacter);
+    }
+    if (hidePhoneNumbers) {
       source = source.hidePhoneNumbers(obscuringCharacter: obscuringCharacter);
-    } else if (hideEmails) {
-      source = source.hideEmails(obscuringCharacter: obscuringCharacter);
-    } else if (hidePhoneNumbers) {
-      source = source.hidePhoneNumbers(obscuringCharacter: obscuringCharacter);
-    } else if (extraWords.isNotEmpty) {
+    }
+    if (extraWords.isNotEmpty) {
       source = source.cleanWords(
         includeDefaultBadWords
             ? [...extraWords.toSet().toList(), ...badWords]

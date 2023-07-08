@@ -631,6 +631,20 @@ extension NullableStringExtension on String? {
   /// ```
   String get notNullValue => this ?? '';
 
+  /// Checks if the string is null or empty.
+  /// returns true if the string is null or empty.
+  /// otherwise returns false.
+  ///
+  /// ```dart
+  /// String? name = null;
+  /// name.isNullOrEmpty; // returns true
+  /// String? anotherName = "";
+  /// anotherName.isNullOrEmpty; // returns true
+  /// String? yetAnotherName = "John Doe";
+  /// yetAnotherName.isNullOrEmpty; // returns false
+  /// ```
+  bool get isNullOrEmpty => notNullValue.isEmpty;
+
   /// Checks if the string contains any of bad-word/profane-word(s).
   ///
   /// returns true if the string contains any of bad-word/profane-word(s).

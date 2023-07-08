@@ -10,7 +10,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  string_contains: 0.0.1
+  string_contains: ^2.3.0
 ```
 
 ### 2. Install it
@@ -53,4 +53,4 @@ import 'package:string_contains/string_contains.dart';
  'I am CEO, Bitch'.cleanBadWords() // returns 'I am CEO, B***t'.
  'I am CEO, Bitch'.cleanBadWords(keepFirstLastLetters: false) // returns 'I am CEO, *****'.
  'I am CEO, Bitch'.cleanBadWords(obscuringCharacter: '@') // returns 'I am CEO, B@@@h'.
- ```
+```

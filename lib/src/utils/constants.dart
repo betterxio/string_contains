@@ -23,16 +23,15 @@ final emailRegExp = RegExp(
 );
 
 /// [RegExp] for detecting [phoneNumber].
+/// checks for phone number
+/// 1. (123) 456-7890
+/// 2. (123)456-7890
+/// 3. 123-456-7890
+/// 4. 123.456.7890
+/// 5. 1234567890
+/// 6. +31636363634
+/// 7. 075-63546725
 final phoneNumberRegExp = RegExp(
-  /// checks for phone number
-  /// 1. (123) 456-7890
-  /// 2. (123)456-7890
-  /// 3. 123-456-7890
-  /// 4. 123.456.7890
-  /// 5. 1234567890
-  /// 6. +31636363634
-  /// 7. 075-63546725
-
   r'(\+?\d{1,4}[\s-]?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}',
   caseSensitive: false,
   dotAll: true,
@@ -66,12 +65,18 @@ RegExp wordsRegExp(List<String> words, {bool caseSensitive = false}) {
 /// which is used to determine which type of element is detected.
 ///
 /// [StringContainsElementType.url] is used for detecting url.
+///
 /// [StringContainsElementType.email] is used for detecting email.
+///
 /// [StringContainsElementType.phoneNumber] is used for detecting phone number.
+///
 /// [StringContainsElementType.hashtag] is used for detecting hashtag.
+///
 /// [StringContainsElementType.mention] is used for detecting mention.
+///
 /// [StringContainsElementType.words] is used for detecting words.
-/// [StringContainsElementType.none] is used for detecting nothing/badword.
+///
+/// [StringContainsElementType.none] is used for detecting nothing.
 ///
 
 enum StringContainsElementType {
@@ -133,7 +138,7 @@ extension on StringContainsElementType {
 ///
 RegExp createRegExpFromTypes(
   List<StringContainsElementType> types, {
-  List<String> words = const [],
+  List<String> words = const <String>[],
   bool caseSensitive = false,
 }) {
   types.sort((a, b) => a.compareTo(b));
@@ -185,6 +190,7 @@ RegExp createRegExpFromTypes(
               );
         break;
       default:
+        break;
     }
   }
   return RegExp(

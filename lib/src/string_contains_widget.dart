@@ -85,6 +85,10 @@ class StringContainsWidget extends StatelessWidget {
   /// then [StringContainsElementType.words] will be added to [types] automatically.
   final TextStyle? highlightWordsStyle;
 
+  /// [caseSensitive] is the [bool] to be used for the caseSensitive in words.
+  /// if [caseSensitive] is not provided, then [caseSensitive] will be used by default.
+  final bool caseSensitive;
+
   /// [types] is the [List] of [StringContainsElementType]s to be used for the [Text] widget.
   /// this is used to identify the type of the [StringContainsElement]
   /// that need to be detected.
@@ -111,9 +115,16 @@ class StringContainsWidget extends StatelessWidget {
     this.textHeightBehavior,
     this.isSelecatable = false,
     this.onTap,
-    this.highLightWords = const [],
+    this.highLightWords = const <String>[],
     this.highlightWordsStyle,
-    this.types = const [StringContainsElementType.url],
+    this.caseSensitive = false,
+    this.types = const [
+      StringContainsElementType.url,
+      StringContainsElementType.email,
+      StringContainsElementType.phoneNumber,
+      StringContainsElementType.hashtag,
+      StringContainsElementType.mention,
+    ],
   }) : super(key: key);
 
   @override
@@ -200,6 +211,7 @@ class StringContainsWidget extends StatelessWidget {
     final regExp = createRegExpFromTypes(
       filterTypes,
       words: highLightWords,
+      caseSensitive: caseSensitive,
     );
     source.splitMapJoin(
       regExp,
