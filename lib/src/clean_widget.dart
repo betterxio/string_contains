@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:string_contains/src/utils/bad_words.dart';
 import 'package:string_contains/string_contains.dart';
 
 /// [CleanWidget] is a [StatelessWidget].
@@ -85,6 +86,11 @@ class CleanWidget extends StatelessWidget {
   /// This is useful for hiding [extraWords] in a text.
   final bool caseSensitive;
 
+  /// [includeDefaultBadWords] is the [bool] to be used for the [Text] widget.
+  /// This can be used to include default bad words.
+  /// This is useful for hiding bad words in a text.
+  final bool includeDefaultBadWords;
+
   const CleanWidget({
     Key? key,
     required this.source,
@@ -107,6 +113,7 @@ class CleanWidget extends StatelessWidget {
     this.hidePhoneNumbers = true,
     this.extraWords = const [],
     this.caseSensitive = false,
+    this.includeDefaultBadWords = true,
   }) : super(key: key);
 
   @override
@@ -159,7 +166,9 @@ class CleanWidget extends StatelessWidget {
       source = source.hidePhoneNumbers(obscuringCharacter: obscuringCharacter);
     } else if (extraWords.isNotEmpty) {
       source = source.cleanWords(
-        extraWords,
+        includeDefaultBadWords
+            ? [...extraWords.toSet().toList(), ...badWords]
+            : [...extraWords.toSet().toList()],
         obscuringCharacter: obscuringCharacter,
         keepFirstLastLetters: keepFirstLastLetters,
         caseSensitive: caseSensitive,

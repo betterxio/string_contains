@@ -24,7 +24,7 @@ final emailRegExp = RegExp(
 
 /// [RegExp] for detecting [phoneNumber].
 final phoneNumberRegExp = RegExp(
-  r'[0-9]{10}',
+  r'(^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$)',
   caseSensitive: false,
   dotAll: true,
 );
@@ -66,12 +66,25 @@ RegExp wordsRegExp(List<String> words, {bool caseSensitive = false}) {
 ///
 
 enum StringContainsElementType {
+  /// [StringContainsElementType.email] is used for detecting email.
   email,
+
+  /// [StringContainsElementType.phoneNumber] is used for detecting phone number.
   phoneNumber,
+
+  /// [StringContainsElementType.hashtag] is used for detecting hashtag.
   hashtag,
+
+  /// [StringContainsElementType.mention] is used for detecting mention.
   mention,
+
+  /// [StringContainsElementType.url] is used for detecting url.
   url,
+
+  /// [StringContainsElementType.words] is used for detecting words.
   words,
+
+  /// [StringContainsElementType.none] is used for detecting nothing.
   none,
 }
 

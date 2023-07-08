@@ -5,7 +5,7 @@
 /// Each [String] is a bad-word.
 ///
 /// The [String]s are sorted in alphabetical order.
-///
+/// it's used to detect bad-words.
 const badWords = <String>[
   '2g1c',
   '2 girls 1 cup',

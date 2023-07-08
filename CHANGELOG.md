@@ -17,3 +17,7 @@
 * Update all the packages
 * Updated README.md and LICENSE
 * Tested
+
+# 1.5.0
+* All Extensions are now available for both String and Nullable String.
+* Added a new extension for String: notNullValue
