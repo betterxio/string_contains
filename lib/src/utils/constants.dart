@@ -24,7 +24,16 @@ final emailRegExp = RegExp(
 
 /// [RegExp] for detecting [phoneNumber].
 final phoneNumberRegExp = RegExp(
-  r'(^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$)',
+  /// checks for phone number
+  /// 1. (123) 456-7890
+  /// 2. (123)456-7890
+  /// 3. 123-456-7890
+  /// 4. 123.456.7890
+  /// 5. 1234567890
+  /// 6. +31636363634
+  /// 7. 075-63546725
+
+  r'(\+?\d{1,4}[\s-]?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}',
   caseSensitive: false,
   dotAll: true,
 );

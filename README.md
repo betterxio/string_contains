@@ -4,9 +4,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/betterxio/string_contains?style=flat)](https://pub.dev/packages/string_contains)
 [![GitHub license](https://img.shields.io/github/license/betterxio/string_contains?style=flat)](https://pub.dev/packages/string_contains)
 
-
-
-Package provides light widgets [for Linkify, Clean] and extensions for strings that contain bad words/urls/links/emails/phone numbers/#hashtags/@mentions and others.
+Package provides light widgets [for Linkify, Clean] and extensions for strings and nullable strings that contain bad words/urls/links/emails/phone numbers/#hashtags/@mentions and others.
 
 # Installing
 
@@ -16,7 +14,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  string_contains: 0.0.2
+  string_contains: 1.5.0
 ```
 
 ### 2. Install it
@@ -98,7 +96,7 @@ StringContainsWidget is a widget that displays a string that contains a certain 
 ```dart
   StringContainsWidget(
                 source:
-                    'I am CEO, Bitch Please visit our website : https://betterx.io/. Please visit our website : https://betterx.io/ and you can search for any thing on google : google.com, I love Dart : https://dart.dev/, you can practice on : https://dartpad.dev/. Flutter uses Dart, you can create your own app with Flutter : https://flutter.dev/, this is a good example of Flutter : https://flutter.dev/docs/get-started/. BetterX.io : Let's build something Better, User-centered & beautiful together for more info contact us at : info@betterx.io. My Personal Email : ravikumar2710999@gmail.com. A fake email : gedoye9446@roxoas.com. My Phone Number : +91-9000000001. I love Dart and Flutter I love #dart and #flutter. @flutter is #awesome',
+                    '''I am CEO, Bitch Please visit our website : https://betterx.io/. Please visit our website : https://betterx.io/ and you can search for any thing on google : google.com, I love Dart : https://dart.dev/, you can practice on : https://dartpad.dev/. Flutter uses Dart, you can create your own app with Flutter : https://flutter.dev/, this is a good example of Flutter : https://flutter.dev/docs/get-started/. BetterX.io : Let's build something Better, User-centered & beautiful together for more info contact us at : info@betterx.io. My Personal Email : ravikumar2710999@gmail.com. A fake email : gedoye9446@roxoas.com. My Phone Number : +91-9000000001. I love Dart and Flutter I love #dart and #flutter. @flutter is #awesome''',
                 onTap: (url) {
                   print('element is a ${url.value} and type of ${url.type}');
                   if (url.type == StringContainsElementType.words) {
@@ -141,7 +139,7 @@ it used to clean up bad-words/hide emails/hide phoneNumbers/partially or fully h
 ```dart
 CleanWidget(
             source:
-                      'I am CEO, Bitch Please visit our website : https://betterx.io/. Please visit our website : https://betterx.io/ and you can search for any thing on google : google.com, I love Dart : https://dart.dev/, you can practice on : https://dartpad.dev/. Flutter uses Dart, you can create your own app with Flutter : https://flutter.dev/, this is a good example of Flutter : https://flutter.dev/docs/get-started/. BetterX.io : Let's build something Better, User-centered & beautiful together for more info contact us at : info@betterx.io. My Personal Email : ravikumar2710999@gmail.com. A fake email : gedoye9446@roxoas.com. My Phone Number : +91-9000000001 I love Dart and Flutter I love #dart and #flutter. @flutter is #awesome',
+                      '''I am CEO, Bitch Please visit our website : https://betterx.io/. Please visit our website : https://betterx.io/ and you can search for any thing on google : google.com, I love Dart : https://dart.dev/, you can practice on : https://dartpad.dev/. Flutter uses Dart, you can create your own app with Flutter : https://flutter.dev/, this is a good example of Flutter : https://flutter.dev/docs/get-started/. BetterX.io : Let's build something Better, User-centered & beautiful together for more info contact us at : info@betterx.io. My Personal Email : ravikumar2710999@gmail.com. A fake email : gedoye9446@roxoas.com. My Phone Number : +91-9000000001 I love Dart and Flutter I love #dart and #flutter. @flutter is #awesome''',
                   style: Theme.of(context).textTheme.headline6?.copyWith(
                         color: Theme.of(context).primaryColorDark,
                 ),

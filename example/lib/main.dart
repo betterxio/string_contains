@@ -35,7 +35,19 @@ class _MyHomePageState extends State<MyHomePage> {
       'Please visit our website : https://betterx.io/ and you can search for any thing on google : google.com, I love Dart : https://dart.dev/, you can practice on : https://dartpad.dev/. Flutter uses Dart, you can create your own app with Flutter : https://flutter.dev/, this is a good example of Flutter : https://flutter.dev/docs/get-started/.';
   final stringContainsEmail =
       "BetterX.io : Let's build something Better, User-centered & beautiful together\n for more info contact us at : info@betterx.io. My Personal Email : ravikumar2710999@gmail.com.\n A fake email : gedoye9446@roxoas.com.";
-  final stringContainsPhoneNumber = 'My Phone Number : +91-9000000001';
+  final stringContainsPhoneNumber =
+  '''My Phone Number : +91-9000000001 and some of other eg. of phone numbers ->
+
+  /// 0. 9000000769
+  /// 1. (123) 456-7890
+  /// 2. (123)456-7890
+  /// 3. 123-456-7890
+  /// 4. 123.456.7890
+  /// 5. 1234567890
+  /// 6. +31636363634
+  /// 7. 075-63546725
+  ''';
+
   final normalString = 'I love Dart and Flutter';
   final stringContainsHashtags =
       'I love #dart and #flutter. @flutter is #awesome';
