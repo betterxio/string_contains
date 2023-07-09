@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the cleanBadWords method from the StringContains extension, for the Dart programming language.">
+  <title>cleanBadWords method - StringContains extension - string_contains library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">string_contains</a></li>
+    <li><a href="../../string_contains/string_contains-library.html">string_contains</a></li>
+    <li><a href="../../string_contains/StringContains.html">StringContains</a></li>
+    <li class="self-crumb">cleanBadWords method</li>
+  </ol>
+  <div class="self-name">cleanBadWords</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        brightness_4
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        brightness_5
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">cleanBadWords</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+<span class="name ">cleanBadWords</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="cleanBadWords-param-obscuringCharacter">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">obscuringCharacter</span> = <span class="default-value">&#39;*&#39;</span>, </span></li>
+<li><span class="parameter" id="cleanBadWords-param-keepFirstLastLetters"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">keepFirstLastLetters</span> = <span class="default-value">true</span>}</span></li>
+</ol>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Clean the string from any bad-word/profane-word(s).</p>
+<p>returns clean <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> if the string contains any bad-word/profane-word(s).
+all bad-words are removed and replaced with <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> obscuringCharacter.</p>
+<p>returns same <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> if the string does not contain any bad-word/profane-word(s).</p>
+<p>obscuringCharacter is defaulted to '*'.</p>
+<p>keepFirstLastLetters is defaulted to <code>true</code>.
+If <code>keepFirstLastLetters</code> is set to <code>false</code>, first and last letter of the string also will be replaced with <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a> obscuringCharacter.</p>
+<pre class="language-dart"><code class="language-dart">'I am CEO, Bitch'.cleanBadWords() // returns 'I am CEO, B***t'.
+
+'I am CEO, Bitch'.cleanBadWords(keepFirstLastLetters: false) // returns 'I am CEO, *****'.
+
+'I am CEO, Bitch'.cleanBadWords(obscuringCharacter: '@') // returns 'I am CEO, B@@@h'.
+</code></pre>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">String cleanBadWords(
+    {String obscuringCharacter = &#39;*&#39;, bool keepFirstLastLetters = true}) {
+  if (isNotEmpty) {
+    try {
+      final result = replaceAllMapped(badWordsRegExp, (match) {
+        final length = match.end - match.start;
+        if (length &gt;= 3 &amp;&amp; keepFirstLastLetters) {
+          final matchedString = substring(match.start, match.end);
+          final cleaned = matchedString.split(&#39;&#39;).first +
+              obscuringCharacter * (length - 2) +
+              matchedString.split(&#39;&#39;).last;
+          return cleaned;
+        }
+        return obscuringCharacter * length;
+      });
+      return result;
+    } on Exception {
+      return this;
+    }
+  }
+  return this;
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">string_contains</a></li>
+  <li><a href="../../string_contains/string_contains-library.html">string_contains</a></li>
+  <li><a href="../../string_contains/StringContains.html">StringContains</a></li>
+  <li class="self-crumb">cleanBadWords method</li>
+</ol>
+
+
+    <h5>StringContains extension</h5>
+    <ol>
+
+
+
+
+
+        <li class="section-title"><a href="../../string_contains/StringContains.html#instance-methods">Methods</a></li>
+          <li><a href="../../string_contains/StringContains/cleanBadWords.html">cleanBadWords</a></li>
+          <li><a href="../../string_contains/StringContains/cleanWords.html">cleanWords</a></li>
+          <li><a href="../../string_contains/StringContains/containsBadWord.html">containsBadWord</a></li>
+          <li><a href="../../string_contains/StringContains/containsEmail.html">containsEmail</a></li>
+          <li><a href="../../string_contains/StringContains/containsHashtag.html">containsHashtag</a></li>
+          <li><a href="../../string_contains/StringContains/containsMention.html">containsMention</a></li>
+          <li><a href="../../string_contains/StringContains/containsPhoneNumber.html">containsPhoneNumber</a></li>
+          <li><a href="../../string_contains/StringContains/containsUrl.html">containsUrl</a></li>
+          <li><a href="../../string_contains/StringContains/containsWords.html">containsWords</a></li>
+          <li><a href="../../string_contains/StringContains/getBadWords.html">getBadWords</a></li>
+          <li><a href="../../string_contains/StringContains/getEmails.html">getEmails</a></li>
+          <li><a href="../../string_contains/StringContains/getHashtags.html">getHashtags</a></li>
+          <li><a href="../../string_contains/StringContains/getMentions.html">getMentions</a></li>
+          <li><a href="../../string_contains/StringContains/getPhoneNumbers.html">getPhoneNumbers</a></li>
+          <li><a href="../../string_contains/StringContains/getUrls.html">getUrls</a></li>
+          <li><a href="../../string_contains/StringContains/getWords.html">getWords</a></li>
+          <li><a href="../../string_contains/StringContains/hideEmails.html">hideEmails</a></li>
+          <li><a href="../../string_contains/StringContains/hidePhoneNumbers.html">hidePhoneNumbers</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    string_contains
+      2.3.0
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:string_contains/src/utils/constants.dart';
 import 'models/string_contains_element.dart';
 
-/// Cal Back [Function] for [StringContainsElement].
-typedef OnTapCallBack = void Function(StringContainsElement);
+/// Call Back [Function] for [StringContainsElement].
+typedef OnTapCallBack = void Function(StringContainsElement element);
 
 /// [StringContainsWidget] highlights the url, email, phone number, hashtag, mention and [highLightWords].
 /// provides [onTap] callback for each element of type [StringContainsElementType].

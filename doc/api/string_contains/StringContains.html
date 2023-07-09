@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the StringContains extension from the string_contains library, for the Dart programming language.">
+  <title>StringContains extension - string_contains library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">string_contains</a></li>
+    <li><a href="../string_contains/string_contains-library.html">string_contains</a></li>
+    <li class="self-crumb">StringContains extension</li>
+  </ol>
+  <div class="self-name">StringContains</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        brightness_4
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        brightness_5
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+<div id="dartdoc-main-content" class="main-content">
+    <div>
+<h1><span class="kind-class">StringContains</span> extension 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <pre class="language-dart"><code class="language-dart">Extension on [String] that provides a methods to check, if a string contains any bad-words/url/link/email/phone number/hashtag/mention and more others.
+</code></pre>
+</section>
+
+    <section>
+      <dl class="dl-horizontal">
+        <dt>on</dt>
+        <dd>
+          <ul class="comma-separated clazz-relationships">
+              <li><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></li>
+          </ul>
+        </dd>
+      </dl>
+      
+
+
+    </section>
+
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="cleanBadWords" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/cleanBadWords.html">cleanBadWords</a></span><span class="signature">(<wbr><span class="parameter" id="cleanBadWords-param-obscuringCharacter">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">obscuringCharacter</span> = <span class="default-value">&#39;*&#39;</span>, </span><span class="parameter" id="cleanBadWords-param-keepFirstLastLetters"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">keepFirstLastLetters</span> = <span class="default-value">true</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Clean the string from any bad-word/profane-word(s).
+  
+
+</dd>
+
+        <dt id="cleanWords" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/cleanWords.html">cleanWords</a></span><span class="signature">(<wbr><span class="parameter" id="cleanWords-param-words"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">words</span>, </span><span class="parameter" id="cleanWords-param-caseSensitive">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">caseSensitive</span> = <span class="default-value">false</span>, </span><span class="parameter" id="cleanWords-param-obscuringCharacter"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">obscuringCharacter</span> = <span class="default-value">&#39;*&#39;</span>, </span><span class="parameter" id="cleanWords-param-keepFirstLastLetters"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">keepFirstLastLetters</span> = <span class="default-value">true</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Clean the string from given <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a> words.
+  
+
+</dd>
+
+        <dt id="containsBadWord" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/containsBadWord.html">containsBadWord</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Checks if the string contains any of bad-word/profane-word(s).
+  
+
+</dd>
+
+        <dt id="containsEmail" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/containsEmail.html">containsEmail</a></span><span class="signature">(<wbr><span class="parameter" id="containsEmail-param-customRegExp">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">customRegExp</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Checks if the string contains <code>email</code>.
+  
+
+</dd>
+
+        <dt id="containsHashtag" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/containsHashtag.html">containsHashtag</a></span><span class="signature">(<wbr><span class="parameter" id="containsHashtag-param-customRegExp">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">customRegExp</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Checks if the string contains <code>hashtag</code>.
+  
+
+</dd>
+
+        <dt id="containsMention" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/containsMention.html">containsMention</a></span><span class="signature">(<wbr><span class="parameter" id="containsMention-param-customRegExp">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">customRegExp</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Checks if the string contains <code>mention</code>.
+  
+
+</dd>
+
+        <dt id="containsPhoneNumber" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/containsPhoneNumber.html">containsPhoneNumber</a></span><span class="signature">(<wbr><span class="parameter" id="containsPhoneNumber-param-customRegExp">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">customRegExp</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Checks if the string contains <code>phone</code>.
+  
+
+</dd>
+
+        <dt id="containsUrl" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/containsUrl.html">containsUrl</a></span><span class="signature">(<wbr><span class="parameter" id="containsUrl-param-customRegExp">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">customRegExp</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Checks if the string contains <code>url</code>/<code>uri</code>.
+  
+
+</dd>
+
+        <dt id="containsWords" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/containsWords.html">containsWords</a></span><span class="signature">(<wbr><span class="parameter" id="containsWords-param-words"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">words</span>, </span><span class="parameter" id="containsWords-param-caseSensitive">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">caseSensitive</span> = <span class="default-value">false</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Checks if the string contains given <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a> words.
+  
+
+</dd>
+
+        <dt id="getBadWords" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/getBadWords.html">getBadWords</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Get all bad-words/profane-word(s) from the string.
+  
+
+</dd>
+
+        <dt id="getEmails" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/getEmails.html">getEmails</a></span><span class="signature">(<wbr><span class="parameter" id="getEmails-param-customRegExp">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">customRegExp</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Get <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a> of all <code>email</code> from the string.
+  
+
+</dd>
+
+        <dt id="getHashtags" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/getHashtags.html">getHashtags</a></span><span class="signature">(<wbr><span class="parameter" id="getHashtags-param-customRegExp">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">customRegExp</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Get the <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List&lt;String&gt;</a> of <code>hashtag</code> from the string.
+  
+
+</dd>
+
+        <dt id="getMentions" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/getMentions.html">getMentions</a></span><span class="signature">(<wbr><span class="parameter" id="getMentions-param-customRegExp">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">customRegExp</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Get the <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List&lt;String&gt;</a> of <code>mention</code> from the string.
+  
+
+</dd>
+
+        <dt id="getPhoneNumbers" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/getPhoneNumbers.html">getPhoneNumbers</a></span><span class="signature">(<wbr><span class="parameter" id="getPhoneNumbers-param-customRegExp">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">customRegExp</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Get <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a> of all <code>phone</code> from the string.
+  
+
+</dd>
+
+        <dt id="getUrls" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/getUrls.html">getUrls</a></span><span class="signature">(<wbr><span class="parameter" id="getUrls-param-customRegExp">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">customRegExp</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Get all <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a> of <code>url</code>/<code>uri</code> <code>String</code>s from the string.
+  
+
+</dd>
+
+        <dt id="getWords" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/getWords.html">getWords</a></span><span class="signature">(<wbr><span class="parameter" id="getWords-param-words"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">words</span>, </span><span class="parameter" id="getWords-param-caseSensitive">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">caseSensitive</span> = <span class="default-value">false</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Get <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a> of all <code>words</code> from the string.
+  
+
+</dd>
+
+        <dt id="hideEmails" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/hideEmails.html">hideEmails</a></span><span class="signature">(<wbr><span class="parameter" id="hideEmails-param-obscuringCharacter">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">obscuringCharacter</span> = <span class="default-value">&#39;*&#39;</span>, </span><span class="parameter" id="hideEmails-param-customRegExp"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">customRegExp</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  hide <code>email</code> from the string.
+  
+
+</dd>
+
+        <dt id="hidePhoneNumbers" class="callable">
+  <span class="name"><a href="../string_contains/StringContains/hidePhoneNumbers.html">hidePhoneNumbers</a></span><span class="signature">(<wbr><span class="parameter" id="hidePhoneNumbers-param-obscuringCharacter">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">obscuringCharacter</span> = <span class="default-value">&#39;*&#39;</span>, </span><span class="parameter" id="hidePhoneNumbers-param-showFirstLastTwoDigits"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showFirstLastTwoDigits</span> = <span class="default-value">true</span>, </span><span class="parameter" id="hidePhoneNumbers-param-customRegExp"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">customRegExp</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  hide <code>phone</code> from the string.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+    
+
+
+</div> <!-- /.main-content -->
+
+<div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">string_contains</a></li>
+  <li><a href="../string_contains/string_contains-library.html">string_contains</a></li>
+  <li class="self-crumb">StringContains extension</li>
+</ol>
+
+
+    <h5>string_contains library</h5>
+    <ol>
+      <li class="section-title"><a href="../string_contains/string_contains-library.html#classes">Classes</a></li>
+        <li><a href="../string_contains/CleanWidget-class.html">CleanWidget</a></li>
+        <li><a href="../string_contains/StringContainsElement-class.html">StringContainsElement</a></li>
+        <li><a href="../string_contains/StringContainsWidget-class.html">StringContainsWidget</a></li>
+
+      <li class="section-title"><a href="../string_contains/string_contains-library.html#extensions">Extensions</a></li>
+        <li><a href="../string_contains/NullableStringExtension.html">NullableStringExtension</a></li>
+        <li><a href="../string_contains/StringContains.html">StringContains</a></li>
+
+
+
+
+
+      <li class="section-title"><a href="../string_contains/string_contains-library.html#enums">Enums</a></li>
+        <li><a href="../string_contains/StringContainsElementType.html">StringContainsElementType</a></li>
+
+      <li class="section-title"><a href="../string_contains/string_contains-library.html#typedefs">Typedefs</a></li>
+        <li><a href="../string_contains/OnTapCallBack.html">OnTapCallBack</a></li>
+
+</ol>
+
+</div>
+
+<div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <ol>
+
+
+
+
+
+        <li class="section-title"><a href="../string_contains/StringContains.html#instance-methods">Methods</a></li>
+          <li><a href="../string_contains/StringContains/cleanBadWords.html">cleanBadWords</a></li>
+          <li><a href="../string_contains/StringContains/cleanWords.html">cleanWords</a></li>
+          <li><a href="../string_contains/StringContains/containsBadWord.html">containsBadWord</a></li>
+          <li><a href="../string_contains/StringContains/containsEmail.html">containsEmail</a></li>
+          <li><a href="../string_contains/StringContains/containsHashtag.html">containsHashtag</a></li>
+          <li><a href="../string_contains/StringContains/containsMention.html">containsMention</a></li>
+          <li><a href="../string_contains/StringContains/containsPhoneNumber.html">containsPhoneNumber</a></li>
+          <li><a href="../string_contains/StringContains/containsUrl.html">containsUrl</a></li>
+          <li><a href="../string_contains/StringContains/containsWords.html">containsWords</a></li>
+          <li><a href="../string_contains/StringContains/getBadWords.html">getBadWords</a></li>
+          <li><a href="../string_contains/StringContains/getEmails.html">getEmails</a></li>
+          <li><a href="../string_contains/StringContains/getHashtags.html">getHashtags</a></li>
+          <li><a href="../string_contains/StringContains/getMentions.html">getMentions</a></li>
+          <li><a href="../string_contains/StringContains/getPhoneNumbers.html">getPhoneNumbers</a></li>
+          <li><a href="../string_contains/StringContains/getUrls.html">getUrls</a></li>
+          <li><a href="../string_contains/StringContains/getWords.html">getWords</a></li>
+          <li><a href="../string_contains/StringContains/hideEmails.html">hideEmails</a></li>
+          <li><a href="../string_contains/StringContains/hidePhoneNumbers.html">hidePhoneNumbers</a></li>
+
+
+
+
+</ol>
+
+</div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    string_contains
+      2.3.0
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+
+
