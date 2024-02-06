@@ -1,7 +1,7 @@
 # 2.4.0
 
 - Removed the deprecated `textScaleFactor`.
-- resolving dependencies & updated
+- resolved dependencies & updated
 - updated `README.md` file
 - Added Tests
 - added screenshots & tags
