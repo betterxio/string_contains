@@ -1,13 +1,13 @@
 name: string_contains
 description: Package provides light widgets[for Linkify, Clean] and string scanner extensions on a string to check it contains bad words/urls/links/emails/phone numbers/#hashtags/@mentions etc.
-version: 2.3.0
+version: 2.4.0
 homepage: https://github.com/betterxio/string_contains
 repository: https://github.com/betterxio/string_contains
 issue_tracker : https://github.com/betterxio/string_contains/issues
 documentation: https://pub.dev/documentation/string_contains/latest
 
 environment:
-  sdk: ">=3.0.5 <4.0.0"
+  sdk: ">=3.1.0 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
@@ -17,4 +17,15 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.0
+
+screenshots:
+  - description: Logo
+    path: assets/string-contains-widget.png
+
+topics:
+  - linkify
+  - string-scanner
+  - clean
+  - hashtags-mentions-urls
+  - flutter

@@ -623,7 +623,7 @@ extension StringContains on String {
 }
 
 /// extension on nullable [String].
-extension NullableStringExtension on String? {
+extension NullableStringContains on String? {
   /// returns empty [String] if the string is null.
   /// ```dart
   /// String? name = null;
@@ -632,18 +632,18 @@ extension NullableStringExtension on String? {
   String get notNullValue => this ?? '';
 
   /// Checks if the string is null or empty.
-  /// returns true if the string is null or empty.
+  /// returns true if the string is null or empty [String].
   /// otherwise returns false.
   ///
   /// ```dart
   /// String? name = null;
-  /// name.isNullOrEmpty; // returns true
+  /// name.nullOrEmpty; // returns true
   /// String? anotherName = "";
-  /// anotherName.isNullOrEmpty; // returns true
+  /// anotherName.nullOrEmpty; // returns true
   /// String? yetAnotherName = "John Doe";
-  /// yetAnotherName.isNullOrEmpty; // returns false
+  /// yetAnotherName.nullOrEmpty; // returns false
   /// ```
-  bool get isNullOrEmpty => notNullValue.isEmpty;
+  bool get nullOrEmpty => notNullValue.isEmpty;
 
   /// Checks if the string contains any of bad-word/profane-word(s).
   ///
@@ -714,8 +714,9 @@ extension NullableStringExtension on String? {
   /// 'Please visit our website : https://betterx.io/'.containsUrl() // returns true
   /// ```
 
-  bool containsUrl({RegExp? customRegExp}) =>
-      notNullValue.containsUrl(customRegExp: customRegExp);
+  bool containsUrl({RegExp? customRegExp}) => notNullValue.containsUrl(
+        customRegExp: customRegExp,
+      );
 
   /// Get all [List] of [url]/[uri] [String]s from the string.
   ///
@@ -734,7 +735,9 @@ extension NullableStringExtension on String? {
   List<String> getUrls({
     RegExp? customRegExp,
   }) =>
-      notNullValue.getUrls(customRegExp: customRegExp);
+      notNullValue.getUrls(
+        customRegExp: customRegExp,
+      );
 
   /// Checks if the string contains [email].
   ///
@@ -753,7 +756,9 @@ extension NullableStringExtension on String? {
   bool containsEmail({
     RegExp? customRegExp,
   }) =>
-      notNullValue.containsEmail(customRegExp: customRegExp);
+      notNullValue.containsEmail(
+        customRegExp: customRegExp,
+      );
 
   /// Get [List] of all [email] from the string.
   ///
@@ -772,7 +777,9 @@ extension NullableStringExtension on String? {
   List<String> getEmails({
     RegExp? customRegExp,
   }) =>
-      notNullValue.getEmails(customRegExp: customRegExp);
+      notNullValue.getEmails(
+        customRegExp: customRegExp,
+      );
 
   /// hide [email] from the string.
   ///
@@ -816,7 +823,9 @@ extension NullableStringExtension on String? {
   bool containsPhoneNumber({
     RegExp? customRegExp,
   }) =>
-      notNullValue.containsPhoneNumber(customRegExp: customRegExp);
+      notNullValue.containsPhoneNumber(
+        customRegExp: customRegExp,
+      );
 
   /// Get [List] of all [phone] from the string.
   ///
@@ -836,7 +845,9 @@ extension NullableStringExtension on String? {
   List<String> getPhoneNumbers({
     RegExp? customRegExp,
   }) =>
-      notNullValue.getPhoneNumbers(customRegExp: customRegExp);
+      notNullValue.getPhoneNumbers(
+        customRegExp: customRegExp,
+      );
 
   /// hide [phone] from the string.
   ///
@@ -964,7 +975,9 @@ extension NullableStringExtension on String? {
   bool containsHashtag({
     RegExp? customRegExp,
   }) =>
-      notNullValue.containsHashtag(customRegExp: customRegExp);
+      notNullValue.containsHashtag(
+        customRegExp: customRegExp,
+      );
 
   /// Get the [List<String>] of [hashtag] from the string.
   ///
@@ -985,7 +998,9 @@ extension NullableStringExtension on String? {
   List<String> getHashtags({
     RegExp? customRegExp,
   }) =>
-      notNullValue.getHashtags(customRegExp: customRegExp);
+      notNullValue.getHashtags(
+        customRegExp: customRegExp,
+      );
 
   /// Checks if the string contains [mention].
   ///
@@ -1006,7 +1021,9 @@ extension NullableStringExtension on String? {
   bool containsMention({
     RegExp? customRegExp,
   }) =>
-      notNullValue.containsHashtag(customRegExp: customRegExp);
+      notNullValue.containsHashtag(
+        customRegExp: customRegExp,
+      );
 
   /// Get the [List<String>] of [mention] from the string.
   ///
@@ -1027,5 +1044,7 @@ extension NullableStringExtension on String? {
   List<String> getMentions({
     RegExp? customRegExp,
   }) =>
-      notNullValue.getHashtags(customRegExp: customRegExp);
+      notNullValue.getHashtags(
+        customRegExp: customRegExp,
+      );
 }

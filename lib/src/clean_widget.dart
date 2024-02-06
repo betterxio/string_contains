@@ -37,9 +37,10 @@ class CleanWidget extends StatelessWidget {
   /// [overflow] is the [TextOverflow] to be used for the [Text] widget.
   final TextOverflow? overflow;
 
-  /// [textScaleFactor] is the [double] to be used for the [Text] widget.
-  /// This can be used to increase or decrease the size of the text.
-  final double? textScaleFactor;
+  // /// [textScaleFactor] is the [double] to be used for the [Text] widget.
+  // /// This can be used to increase or decrease the size of the text.
+  // removed due to deprecation
+  // final double? textScaleFactor;
 
   /// [maxLines] is the [int] to be used for the [Text] widget.
   /// This can be used to limit the number of lines in the text.
@@ -92,7 +93,7 @@ class CleanWidget extends StatelessWidget {
   final bool includeDefaultBadWords;
 
   const CleanWidget({
-    Key? key,
+    super.key,
     required this.source,
     this.style,
     this.strutStyle,
@@ -101,7 +102,8 @@ class CleanWidget extends StatelessWidget {
     this.locale,
     this.softWrap,
     this.overflow,
-    this.textScaleFactor,
+    // removed due to deprecation
+    // this.textScaleFactor,
     this.maxLines,
     this.semanticsLabel,
     this.textWidthBasis,
@@ -114,7 +116,7 @@ class CleanWidget extends StatelessWidget {
     this.extraWords = const [],
     this.caseSensitive = false,
     this.includeDefaultBadWords = true,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +129,7 @@ class CleanWidget extends StatelessWidget {
         strutStyle: strutStyle,
         textAlign: textAlign,
         textDirection: textDirection,
-        textScaleFactor: textScaleFactor,
+        // textScaleFactor: textScaleFactor,
         maxLines: maxLines,
         semanticsLabel: semanticsLabel,
         textWidthBasis: textWidthBasis,
@@ -144,7 +146,7 @@ class CleanWidget extends StatelessWidget {
       locale: locale,
       softWrap: softWrap,
       overflow: overflow,
-      textScaleFactor: textScaleFactor,
+      // textScaleFactor: textScaleFactor,
       maxLines: maxLines,
       semanticsLabel: semanticsLabel,
       textWidthBasis: textWidthBasis,
@@ -166,8 +168,8 @@ class CleanWidget extends StatelessWidget {
     if (extraWords.isNotEmpty) {
       source = source.cleanWords(
         includeDefaultBadWords
-            ? [...extraWords.toSet().toList(), ...badWords]
-            : [...extraWords.toSet().toList()],
+            ? [...extraWords.toSet(), ...badWords]
+            : [...extraWords.toSet()],
         obscuringCharacter: obscuringCharacter,
         keepFirstLastLetters: keepFirstLastLetters,
         caseSensitive: caseSensitive,

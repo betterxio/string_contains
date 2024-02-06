@@ -1,6 +1,8 @@
 # string_contains
 
 [![pub package](https://img.shields.io/pub/v/string_contains?style=flat)](https://pub.dev/packages/string_contains)
+[![Score](https://img.shields.io/pub/points/string_contains?label=Score&logo=dart)](https://pub.dartlang.org/packages/string_contains/score)
+[![Platform](https://img.shields.io/badge/Platform-Android%20|%20iOS%20|%20Web%20|%20macOS%20|%20Windows%20|%20Linux%20-blue.svg?logo=flutter)](https://pub.dartlang.org/packages/string_contains)
 [![GitHub issues](https://img.shields.io/github/issues/betterxio/string_contains?style=flat)](https://pub.dev/packages/string_contains)
 [![GitHub license](https://img.shields.io/github/license/betterxio/string_contains?style=flat)](https://pub.dev/packages/string_contains)
 
@@ -14,7 +16,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  string_contains: ^2.2.0
+  string_contains: ^2.4.0
 ```
 
 ### 2. Install it
@@ -158,11 +160,9 @@ CleanWidget(
     <img src="https://raw.githubusercontent.com/betterxio/string_contains/main/assets/clean-widget.png" width="240px" height="auto" hspace="20"/>
 </p>
 
-# Maintainers
+## Maintainers
 
-- ###### [Ravi Kovind](https://ravikovind.github.io/)
-
-- ###### [BetterX](https://github.com/betterxio)
+### [Ravi Kovind](https://ravikovind.github.io/)
 
 # Disclaimer
 

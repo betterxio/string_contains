@@ -43,9 +43,10 @@ class StringContainsWidget extends StatelessWidget {
   /// [overflow] is the [TextOverflow] to be used for the [Text] widget.
   final TextOverflow? overflow;
 
-  /// [textScaleFactor] is the [double] to be used for the [Text] widget.
-  /// This can be used to increase or decrease the size of the text.
-  final double? textScaleFactor;
+  // /// [textScaleFactor] is the [double] to be used for the [Text] widget.
+  // /// This can be used to increase or decrease the size of the text.
+  // removed due to deprecation
+  // final double? textScaleFactor;
 
   /// [maxLines] is the [int] to be used for the [Text] widget.
   /// This can be used to limit the number of lines in the text.
@@ -98,7 +99,7 @@ class StringContainsWidget extends StatelessWidget {
   final List<StringContainsElementType> types;
 
   const StringContainsWidget({
-    Key? key,
+    super.key,
     required this.source,
     this.style,
     this.linkStyle,
@@ -108,7 +109,8 @@ class StringContainsWidget extends StatelessWidget {
     this.locale,
     this.softWrap,
     this.overflow,
-    this.textScaleFactor,
+    // removed due to deprecation
+    // this.textScaleFactor,
     this.maxLines,
     this.semanticsLabel,
     this.textWidthBasis,
@@ -125,7 +127,7 @@ class StringContainsWidget extends StatelessWidget {
       StringContainsElementType.hashtag,
       StringContainsElementType.mention,
     ],
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +138,7 @@ class StringContainsWidget extends StatelessWidget {
         strutStyle: strutStyle,
         textAlign: textAlign,
         textDirection: textDirection,
-        textScaleFactor: textScaleFactor,
+        // textScaleFactor: textScaleFactor,
         maxLines: maxLines,
         semanticsLabel: semanticsLabel,
         textWidthBasis: textWidthBasis,
@@ -152,7 +154,7 @@ class StringContainsWidget extends StatelessWidget {
       locale: locale,
       softWrap: softWrap,
       overflow: overflow,
-      textScaleFactor: textScaleFactor,
+      // textScaleFactor: textScaleFactor,
       maxLines: maxLines,
       semanticsLabel: semanticsLabel,
       textWidthBasis: textWidthBasis,
