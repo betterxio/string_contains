@@ -20,7 +20,7 @@ dev_dependencies:
   flutter_lints: ^3.0.0
 
 screenshots:
-  - description: Logo
+  - description: StringContainsWidget
     path: assets/string-contains-widget.png
 
 topics:
